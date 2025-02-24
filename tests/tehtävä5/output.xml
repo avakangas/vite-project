@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.13.1 on win32)" generated="2025-04-03T11:02:26.321524" rpa="false" schemaversion="5">
+<suite id="s1" name="Browser Demo5" source="C:\Users\35840\harjoitus vite\vite-project\tests\tehtävä5\browser_demo5.robot">
+<test id="s1-t1" name="Kirjautumistesti" line="9">
+<kw name="New Browser" owner="Browser">
+<msg time="2025-04-03T11:02:27.243718" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "C:\\Users\\35840\\harjoitus vite\\vite-project\\tests\\teht\u00e4v\u00e45\\browser\\traces\\temp\\4cc0e3fc-7dcc-40b9-93a7-d713cc23b444"}</msg>
+<msg time="2025-04-03T11:02:27.293331" level="INFO">Starting Browser process C:\Users\35840\harjoitus vite\vite-project\.venv\Lib\site-packages\Browser\wrapper\index.js using port 49325</msg>
+<msg time="2025-04-03T11:02:27.293838" level="INFO">Node startup parameters: ['node', 'C:\\Users\\35840\\harjoitus vite\\vite-project\\.venv\\Lib\\site-packages\\Browser\\wrapper\\index.js', '49325']</msg>
+<msg time="2025-04-03T11:02:32.092783" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"C:\\Users\\35840\\harjoitus vite\\vite-project\\tests\\tehtävä5\\browser\\traces\\temp\\4cc0e3fc-7dcc-40b9-93a7-d713cc23b444"}</msg>
+<arg>headless=false</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2025-04-03T11:02:27.242316" elapsed="4.850809"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2025-04-03T11:02:33.002253" level="INFO">Successfully initialized new page object and opened url: http://localhost:5173/src/pages/authtest.html</msg>
+<msg time="2025-04-03T11:02:33.002465" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<arg>http://localhost:5173/src/pages/authtest.html</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2025-04-03T11:02:32.118753" elapsed="0.884321"/>
+</kw>
+<kw name="Type Text" owner="Browser">
+<msg time="2025-04-03T11:02:33.007356" level="INFO">Types the text 'avak' in the given field.</msg>
+<arg>[id="username"]</arg>
+<arg>${Username}</arg>
+<arg>delay=0.1 s</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2025-04-03T11:02:33.005492" elapsed="0.593205"/>
+</kw>
+<kw name="Type Secret" owner="Browser">
+<arg>[id="password"]</arg>
+<arg>$Password</arg>
+<arg>delay=0.1 s</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given secret from ``variable_name`` into the text field
+found by ``selector``.</doc>
+<status status="PASS" start="2025-04-03T11:02:33.599616" elapsed="1.578986"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2025-04-03T11:02:35.181802" level="INFO">Clicks the element 'id=login-button'.</msg>
+<msg time="2025-04-03T11:02:45.480333" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/fail-screenshot-1.png" target="_blank"&gt;&lt;img src="browser/screenshot/fail-screenshot-1.png" width="800px"/&gt;&lt;/a&gt;</msg>
+<msg time="2025-04-03T11:02:45.480901" level="INFO">See also file:///C:/Users/35840/harjoitus%20vite/vite-project/tests/teht%C3%A4v%C3%A45/playwright-log.txt for additional details.</msg>
+<msg time="2025-04-03T11:02:45.482586" level="FAIL">TimeoutError: locator.click: Timeout 10000ms exceeded.
+Call log:
+  - waiting for locator('id=login-button')
+</msg>
+<arg>id=login-button</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="FAIL" start="2025-04-03T11:02:35.180066" elapsed="10.515833">TimeoutError: locator.click: Timeout 10000ms exceeded.
+Call log:
+  - waiting for locator('id=login-button')
+</status>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<arg>id=logout-button</arg>
+<arg>visible</arg>
+<arg>5s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="NOT RUN" start="2025-04-03T11:02:45.696711" elapsed="0.001173"/>
+</kw>
+<kw name="Close Browser" owner="Browser">
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" start="2025-04-03T11:02:45.698942" elapsed="0.000433"/>
+</kw>
+<msg time="2025-04-03T11:02:45.709295" level="INFO">Set timeout to: 10000</msg>
+<status status="FAIL" start="2025-04-03T11:02:27.240983" elapsed="18.459219">TimeoutError: locator.click: Timeout 10000ms exceeded.
+Call log:
+  - waiting for locator('id=login-button')
+</status>
+</test>
+<status status="FAIL" start="2025-04-03T11:02:26.323763" elapsed="19.389025"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Browser Demo5" id="s1" pass="0" fail="1" skip="0">Browser Demo5</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

@@ -1,0 +1,37 @@
+{"level":30,"time":"2025-04-03T08:02:28.424Z","pid":14888,"hostname":"DESKTOP-J93JCF5","msg":"Listening on 49325"}
+(node:14888) DeprecationWarning: Calling start() is no longer necessary. It can be safely omitted.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+{"level":30,"time":"2025-04-03T08:02:29.011Z","pid":14888,"hostname":"DESKTOP-J93JCF5","msg":"Start of node method newBrowser"}
+{"level":30,"time":"2025-04-03T08:02:32.089Z","pid":14888,"hostname":"DESKTOP-J93JCF5","msg":"Adding browser to stack: chromium, version: 134.0.6998.35"}
+{"level":30,"time":"2025-04-03T08:02:32.090Z","pid":14888,"hostname":"DESKTOP-J93JCF5","msg":"Adding 0 contexts to browser"}
+{"level":30,"time":"2025-04-03T08:02:32.123Z","pid":14888,"hostname":"DESKTOP-J93JCF5","msg":"currentBrowser: [object Object]"}
+{"level":30,"time":"2025-04-03T08:02:32.090Z","pid":14888,"hostname":"DESKTOP-J93JCF5","msg":"End of node method newBrowser"}
+{"level":30,"time":"2025-04-03T08:02:32.123Z","pid":14888,"hostname":"DESKTOP-J93JCF5","msg":"Start of node method newPage"}
+{"level":30,"time":"2025-04-03T08:02:32.179Z","pid":14888,"hostname":"DESKTOP-J93JCF5","msg":"Changed active context"}
+{"level":30,"time":"2025-04-03T08:02:32.642Z","pid":14888,"hostname":"DESKTOP-J93JCF5","msg":"Video path: undefined"}
+{"level":30,"time":"2025-04-03T08:02:32.642Z","pid":14888,"hostname":"DESKTOP-J93JCF5","msg":"Changed active page"}
+{"level":30,"time":"2025-04-03T08:02:32.999Z","pid":14888,"hostname":"DESKTOP-J93JCF5","msg":"End of node method newPage"}
+{"level":30,"time":"2025-04-03T08:02:33.012Z","pid":14888,"hostname":"DESKTOP-J93JCF5","msg":"Start of node method typeText"}
+{"level":30,"time":"2025-04-03T08:02:33.012Z","pid":14888,"hostname":"DESKTOP-J93JCF5","msg":"Strict mode is enabled, find Locator with [id=\"username\"] in page."}
+{"level":30,"time":"2025-04-03T08:02:33.596Z","pid":14888,"hostname":"DESKTOP-J93JCF5","msg":"End of node method typeText"}
+{"level":30,"time":"2025-04-03T08:02:33.605Z","pid":14888,"hostname":"DESKTOP-J93JCF5","msg":"Start of node method typeText"}
+{"level":30,"time":"2025-04-03T08:02:33.605Z","pid":14888,"hostname":"DESKTOP-J93JCF5","msg":"Strict mode is enabled, find Locator with [id=\"password\"] in page."}
+{"level":30,"time":"2025-04-03T08:02:35.175Z","pid":14888,"hostname":"DESKTOP-J93JCF5","msg":"End of node method typeText"}
+{"level":30,"time":"2025-04-03T08:02:35.185Z","pid":14888,"hostname":"DESKTOP-J93JCF5","msg":"Start of node method click"}
+{"level":30,"time":"2025-04-03T08:02:35.186Z","pid":14888,"hostname":"DESKTOP-J93JCF5","msg":"Strict mode is enabled, find Locator with id=login-button in page."}
+{"level":30,"time":"2025-04-03T08:02:45.197Z","pid":14888,"hostname":"DESKTOP-J93JCF5","msg":"Error of node method  click"}
+================= Original suppressed error =================
+locator.click: Timeout 10000ms exceeded.
+Call log:
+[2m  - waiting for locator('id=login-button')[22m
+
+    at internalClick (C:\Users\35840\harjoitus vite\vite-project\.venv\Lib\site-packages\Browser\wrapper\index.js:11890:19)
+    at async click (C:\Users\35840\harjoitus vite\vite-project\.venv\Lib\site-packages\Browser\wrapper\index.js:11871:18)
+    at async PlaywrightServer.click (C:\Users\35840\harjoitus vite\vite-project\.venv\Lib\site-packages\Browser\wrapper\index.js:13132:28) {
+  name: 'TimeoutError'
+}
+=============================================================
+{"level":30,"time":"2025-04-03T08:02:45.326Z","pid":14888,"hostname":"DESKTOP-J93JCF5","msg":"Start of node method takeScreenshot"}
+{"level":30,"time":"2025-04-03T08:02:45.327Z","pid":14888,"hostname":"DESKTOP-J93JCF5","Take screenshot with options: ":{"path":"C:\\Users\\35840\\harjoitus vite\\vite-project\\tests\\tehtävä5\\browser\\screenshot\\fail-screenshot-1.png","fileType":"png","fullPage":false,"timeout":10000,"omitBackground":false}}
+{"level":30,"time":"2025-04-03T08:02:45.476Z","pid":14888,"hostname":"DESKTOP-J93JCF5","msg":"End of node method takeScreenshot"}
+{"level":30,"time":"2025-04-03T09:40:50.359Z","pid":14888,"hostname":"DESKTOP-J93JCF5","msg":"Removed page=495c4ad2-e30a-41d6-b492-d0f946a135e2 from context=216021a5-1af3-456a-a164-9cdbd5de597a page stack"}

@@ -7,17 +7,18 @@ Asennettu:
 - Browser: 19.4.0
 - requests: 2.32.3
 - CryptoLibrary: 0.4.2
+Testattu: [Testi tehtävä 1](tests.asennustesti.py)
 
 ## TEHTÄVÄ 2. tehty 24.3
-Testattu: robot browser_demo.robot
+Testattu: [Testi tehtävä 2](tests.browser_demo2.robot)
 - Browser Demo
 - Test Web Form                                                         | PASS |
 - Browser Demo                                                          | PASS |
 - 1 test, 1 passed, 0 failed
 
 ## TEHTÄVÄ 3. tehty 25.3
-- Testattu:
-- PS C:\Users\35840\harjoitus vite\vite-project> robot browser_demo.robot
+- Testattu:[Testi tehtävä 3](tests.browser_demo3.robot)
+- PS C:\Users\35840\harjoitus vite\vite-project\tests> robot browser_demo3.robot
 - ==============================================================================
 - Browser Demo :: Esimerkki ympäristömuuttujien käytöstä
 - ==============================================================================
@@ -32,5 +33,31 @@ Testattu: robot browser_demo.robot
 - PS C:\Users\35840\harjoitus vite\vite-project> 
 
 ## TEHTÄVÄ 4. tehty 28.3
-Repositorio tehty: https://github.com/avakangas/avakangas.github.io
-- Pushauksen kanssa ollut ongelmia... tekoa jatkettu 28.3
+Testattu:[Testi tehtävä 4](tests.browser_demo4.robot) 
+- PS C:\Users\35840\harjoitus vite\vite-project\tests> robot browser_demo4.robot
+================================================================================
+- Browser Demo4
+- ==============================================================================
+- Lisää uusi päiväkirjamerkintä :: Testi päiväkirja                       | PASS |
+- ------------------------------------------------------------------------------
+- Browser Demo4                                                           | PASS |
+- 1 test, 1 passed, 0 failed
+- ==============================================================================
+
+## TEHTÄVÄ 5. tehty 1.4
+Testattu:[Testi tehtävä 5](tests.browser_demo5.robot) 
+- PS C:\Users\35840\harjoitus vite\vite-project> robot tests/browser_demo5.robot
+- >>
+- ==============================================================================  
+- Browser Demo5  
+- ==============================================================================  
+- Kirjautumistesti                                                      | PASS |  
+- ------------------------------------------------------------------------------  
+- Browser Demo5                                                         | PASS |  
+- 1 test, 1 passed, 0 failed  
+- ==============================================================================  
+- Output:  C:\Users\35840\harjoitus vite\vite-project\output.xml  
+- Log:     C:\Users\35840\harjoitus vite\vite-project\log.html  
+- Report:  C:\Users\35840\harjoitus vite\vite-project\report.html  
+
+## TEHTÄVÄ 6. tehty 2.4
