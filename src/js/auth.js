@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // Funktion fetch pyyntöihin
 const fetchData = async (url, options) => {
   try {
@@ -28,10 +29,29 @@ const registerUser = async (event) => {
 
   // Rekisteröitymisen haku
   const registerForm = document.querySelector('.registerForm');
+=======
+import '../css/style.css';
+import '../css/snackbar.css';
+import {fetchData} from './fetch.js';
+
+console.log('Moi luodaan nyt tokeneita ja kirjaudutaan sisään');
+
+// Esimerkin takia haut ovat nyt suoraan tässä tiedostossa, jotta harjoitus ei sekoita
+// teidän omaa projektin rakennetta
+
+const registerUser = async (event) => {
+  event.preventDefault();
+
+  // Haetaan oikea formi
+  const registerForm = document.querySelector('.registerForm');
+
+  // Haetaan formista arvot
+>>>>>>> b71a6d9 (add auth.js)
   const username = registerForm.querySelector('#username').value.trim();
   const password = registerForm.querySelector('#password').value.trim();
   const email = registerForm.querySelector('#email').value.trim();
 
+<<<<<<< HEAD
   console.log("Lähetetään tiedot:", { username, password, email });
 
   // Tarkistaa että kaikki vaadittavat kentät on täytetty
@@ -47,14 +67,24 @@ const registerUser = async (event) => {
   }
 
   // Lähtevien tietojen varmistus
+=======
+  // Luodaan body lähetystä varten taustapalvelun vaatimaan muotoon
+>>>>>>> b71a6d9 (add auth.js)
   const bodyData = {
     username: username,
     password: password,
     email: email,
   };
 
+<<<<<<< HEAD
   const url = 'http://localhost:3000/api/users';
 
+=======
+  // Endpoint
+  const url = 'http://localhost:3000/api/users';
+
+  // Options
+>>>>>>> b71a6d9 (add auth.js)
   const options = {
     body: JSON.stringify(bodyData),
     method: 'POST',
@@ -62,6 +92,7 @@ const registerUser = async (event) => {
       'Content-type': 'application/json',
     },
   };
+<<<<<<< HEAD
 
   console.log("Lähetetään pyyntö osoitteeseen:", url);
   console.log("Pyynnön options:", options);
@@ -223,3 +254,25 @@ meRequest.addEventListener('click', checkUser);
 // Istunnon tyhjennys -painike
 const clearButton = document.querySelector('#clearButton');
 clearButton.addEventListener('click', clearSession);
+=======
+  console.log(options);
+
+  // Hae data
+  const response = await fetchData(url, options);
+
+  if (response.error) {
+    console.error('Error adding a new user:', response.error);
+    return;
+  }
+
+  if (response.message) {
+    console.log(response.message, 'success');
+  }
+
+  console.log(response);
+  registerForm.reset(); // tyhjennetään formi
+};
+
+const registerForm = document.querySelector('.registerForm');
+registerForm.addEventListener('submit', registerUser);
+>>>>>>> b71a6d9 (add auth.js)
