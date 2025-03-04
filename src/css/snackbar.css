@@ -1,57 +1,296 @@
-/* The snackbar - position it at the bottom and in the middle of the screen */
-#snackbar {
-  visibility: hidden;
-  min-width: 250px; /* Set a default minimum width */
-  background-color: #333; /* Black background color */
-  color: #fff; /* White text color */
-  text-align: center; /* Centered text */
-  border-radius: 2px; /* Rounded borders */
-  padding: 16px; /* Padding */
-  position: fixed; /* Sit on top of the screen */
-  z-index: 1; /* Add a z-index if needed */
-  left: 50%; /* Center the snackbar */
-  transform: translate(-50%, 0);
-  bottom: 30px; /* 30px from the bottom */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: whitesmoke;
+  padding: 10px 20px;
+  border-bottom: 2px solid whitesmoke; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
 }
 
-#snackbar.error {
-  background-color: crimson;
+#logo {
+  font-size: 28px;
+  font-weight: bold;
+  color: darkblue;
 }
 
-#snackbar.success {
-  background-color: rgb(94, 240, 72);
+.nav-links {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  gap: 15px; 
+  flex: 1;
 }
 
-#snackbar.warning {
-  background-color: rgb(221, 167, 32);
+.box {
+  background-color: darkblue;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 18px;
+  text-align: center;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
-/* Show the snackbar when clicking on a button (class added with JavaScript) */
-#snackbar.show {
-  visibility: visible; /* Show the snackbar */
-  /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
-  However, delay the fade out process for 2.5 seconds */
-  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
-  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+.box:hover {
+  background-color: royalblue;
+  transform: scale(1.05);
+  cursor: pointer;
 }
 
-/* Animations to fade the snackbar in and out */
-@-webkit-keyframes fadein {
-  from {bottom: 0; opacity: 0;}
-  to {bottom: 30px; opacity: 1;}
+
+.tiedot{
+  color:blue;
 }
 
-@keyframes fadein {
-  from {bottom: 0; opacity: 0;}
-  to {bottom: 30px; opacity: 1;}
+.slogan {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 25px;
 }
 
-@-webkit-keyframes fadeout {
-  from {bottom: 30px; opacity: 1;}
-  to {bottom: 0; opacity: 0;}
+#logooo{
+  color:blue;
+  font-size: 25px;
 }
 
-@keyframes fadeout {
-  from {bottom: 30px; opacity: 1;}
-  to {bottom: 0; opacity: 0;}
+main {  
+}
+
+.card {
+      position: relative;
+      color: black;
+      background-color: lightgrey;
+      max-width: 600px;
+      width: 100%;
+      height: 400px;
+      padding: 10px;
+      margin: 40px auto;
+      text-align: center;
+    }
+
+.valokuva{
+  width: 200px;
+  float: right;
+  padding: 20px;
+}
+
+
+footer {
+  height: 50px;
+  background-color: pink;
+  color: black;
+  text-align: center;
+  padding-top: 20px;
+}
+.kuva.sydan {
+  position: absolute;
+  top: -15px;
+  right: -15px; 
+  width: 50px; 
+  height: 50px;
+  z-index: 10; 
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: whitesmoke;
+  padding: 10px 20px;
+  border-bottom: 2px solid whitesmoke;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#logo {
+  font-size: 28px;
+  font-weight: bold;
+  color: darkblue;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  flex: 1;
+}
+
+.box {
+  background-color: darkblue;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 18px;
+  text-align: center;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.box:hover {
+  background-color: royalblue;
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+
+.tiedot {
+  color: blue;
+}
+
+.slogan {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 25px;
+}
+
+#logooo {
+  color: blue;
+  font-size: 25px;
+}
+
+main {
+}
+
+.card {
+  position: relative;
+  color: black;
+  background-color: lightgrey;
+  max-width: 600px;
+  width: 100%;
+  height: 400px;
+  padding: 10px;
+  margin: 40px auto;
+  text-align: center;
+}
+
+.valokuva {
+  width: 200px;
+  float: right;
+  padding: 20px;
+}
+
+
+footer {
+  height: 50px;
+  background-color: pink;
+  color: black;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.kuva.sydan {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  width: 50px;
+  height: 50px;
+  z-index: 10;
+}
+
+.bmikuva {
+  position: relative;
+  width: 400px;
+}
+
+.bmilaskin {
+  background-color: #fdfdfd;
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 400px;
+  margin: 40px auto;
+  margin-bottom: 70px;
+  text-align: left;
+  box-shadow: 0 8px 20px -6px rgba(0, 0, 0, 0.3);
+}
+
+.k {
+  color: #707070;
+}
+
+.bmilaskin input {
+  padding: 15px;
+  width: 40%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.bmilaskin button {
+  background-color: #1e272e;
+  color: white;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.bmilaskin button:hover {
+  background-color: #60666b;
+}
+
+.bmilaskin table {
+  width: 80%;
+  margin-top: 20px;
+}
+
+.bmilaskin td {
+  padding: 5px;
+}
+
+table td {
+  border: 1px solid #ccc;
+}
+
+table tr {
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+.paivakirja-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+.paivakirja-card {
+  display: flex;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  width: 100%;
+  overflow: hidden;
+}
+.paivakirja-img {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ddd;
+  padding: 10px;
+}
+.paivakirja-img img {
+  max-width: 100px;
+  height: auto;
+}
+.paivakirja-content {
+  flex: 2;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.paivakirja-content textarea {
+  width: 100%;
+  height: 100px;
+  margin-bottom: 10px;
+}
+.paivakirja-content button {
+  align-self: flex-start;
+  background-color: #1e272e;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.paivakirja-content button:hover {
+  background-color: #60666b;
 }

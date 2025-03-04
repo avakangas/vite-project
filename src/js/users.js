@@ -26,7 +26,23 @@ const showSnackbar = (message, type = '') => {
 // getUsers
 const getUsers = async () => {
   const url = 'http://localhost:3000/api/users';
-  const users = await fetchData(url);
+
+  // Kutsun headers tiedot johon liitetään tokeni
+  let headers = {};
+
+  // Nyt haetaan Token localstoragesta
+  const token = localStorage.getItem('token');
+
+  // Muodostetaa nyt headers oikeaan muotoon
+  headers = {Authorization: `Bearer ${token}`};
+
+  // Options
+  const options = {
+    headers: headers,
+  };
+  console.log(options);
+
+  const users = await fetchData(url, options);
 
   if (users.error) {
     console.log('Tapahtui virhe fetch haussa!!');

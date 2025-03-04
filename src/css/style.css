@@ -1,13 +1,7 @@
-
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
-  /* color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424; */
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -53,82 +47,235 @@ a:hover {
   color: rgb(0, 0, 0);
 }
 
+/* Navigation Styles */
 nav {
-  background-color: #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: whitesmoke;
+  padding: 10px 20px;
+  border-bottom: 2px solid whitesmoke;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#logo {
+  font-size: 28px;
+  font-weight: bold;
+  color: darkblue;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  flex: 1;
+}
+
+.box {
+  background-color: darkblue;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 18px;
+  text-align: center;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.box:hover {
+  background-color: royalblue;
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+/* Hero Section */
+.slogan {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 25px;
+}
+
+#logooo {
+  color: blue;
+  font-size: 25px;
+}
+
+/* Card Styles */
+.card-area {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.card {
+  position: relative;
+  color: black;
+  background-color: lightgrey;
+  max-width: 700px;
+  width: 100%;
+  height: 500px;
+  padding: 10px;
+  margin: 40px auto;
+  text-align: center;
+  box-shadow: 11px 8px 19px 0px rgb(2, 2, 2);
+  border-radius: 30px;
+}
+
+.card-img {
+  flex: 1;
+  object-fit: cover;
+}
+
+.card-img img {
+  width: 100px;
+}
+
+.card-diary {
+  flex: 4;
+}
+
+/* Footer */
+footer {
+  height: 50px;
+  background-color: pink;
+  color: black;
+  text-align: center;
+  padding-top: 20px;
+}
+
+/* BMILaskin Styles */
+.bmikuva {
+  position: relative;
+  width: 400px;
+}
+
+.bmilaskin {
+  background-color: #fdfdfd;
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 400px;
+  margin: 40px auto;
+  margin-bottom: 70px;
+  text-align: left;
+  box-shadow: 0 8px 20px -6px rgba(0, 0, 0, 0.3);
+}
+
+.bmilaskin input {
+  padding: 15px;
+  width: 40%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.bmilaskin button {
+  background-color: #1e272e;
+  color: white;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.bmilaskin button:hover {
+  background-color: #60666b;
+}
+
+.bmilaskin table {
+  width: 80%;
+  margin-top: 20px;
+}
+
+.bmilaskin td {
+  padding: 5px;
+}
+
+table td {
+  border: 1px solid #ccc;
+}
+
+table tr {
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.bmilaskin .tiedot {
+  color: blue;
+}
+
+/* Paivakirja Styles */
+.paivakirja-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+
+.paivakirja-card {
+  display: flex;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.paivakirja-img {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ddd;
   padding: 10px;
 }
 
-nav ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+.paivakirja-img img {
+  max-width: 100px;
+  height: auto;
 }
 
-nav ul li {
-  display: inline;
-  margin-right: 10px;
+.paivakirja-content {
+  flex: 2;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
-nav ul li a {
+.paivakirja-content textarea {
+  width: 100%;
+  height: 100px;
+  margin-bottom: 10px;
+}
+
+.paivakirja-content button {
+  align-self: flex-start;
+  background-color: #1e272e;
   color: white;
-  text-decoration: none;
-  padding: 8px 16px;
-  background-color: #444;
-  border-radius: 4px;
-}
-
-nav ul li a:hover {
-  background-color: #555;
-}
-
-main {
-  max-width: 900px;
-  margin: auto;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  /* background-color: #1a1a1a; */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.paivakirja-content button:hover {
+  background-color: #60666b;
 }
 
-button.del, button.check, button.update {
-  padding: 0.3rem 0.6rem;
-  margin: 0;
+/* Card Styles - Yhteystiedot Section */
+.valokuva {
+  width: 200px;
+  float: right;
+  padding: 20px;
 }
 
-button.update {
-  background-color: #f2e49448;
-}
-
-button.del {
-  background-color: #f2a29448;
+.kuva.sydan {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  width: 50px;
+  height: 50px;
+  z-index: 10;
 }
 
 .styled-table {
@@ -148,7 +295,7 @@ button.del {
 
 .styled-table th,
 .styled-table td {
-    padding: 12px 15px;
+  padding: 12px 15px;
 }
 
 .styled-table tbody tr {
@@ -162,6 +309,7 @@ button.del {
 .styled-table tbody tr:last-of-type {
   border-bottom: 2px solid #009879;
 }
+
 .styled-table tbody tr.active-row {
   font-weight: bold;
   color: #009879;
@@ -172,94 +320,27 @@ button.del {
   cursor: pointer;
 }
 
-.forms {
-  display: flex;
-  gap: 30px;
-}
-
-form {
-  background-color:  var(--pink);
-  color: #ffffff;
-  padding: 10px;
-  margin-top: 25px;
-  margin-bottom: 25px;
-  font-weight: bold;
-  width: 300px;
-  font-size: 0.9em;
-  font-family: sans-serif;
-}
-
-input[type=text], input[type=password], input[type=email] {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  box-sizing: border-box;
-}
-
-pre {
-  background-color: aliceblue;
-}
-
-dialog {
-  top: 50%;
-  transform: translateY(-50%);
-}
-::backdrop {
-  background-image: linear-gradient(
-    45deg,
-    magenta,
-    rebeccapurple,
-    dodgerblue,
-    green
-  );
-  opacity: 0.75;
-}
-
-.card-area {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.card {
-  min-height: 300px;
-  width: 400px;
-  background-color: #f3f3f3;
-  display: flex;
-  padding: 1em;
-  box-shadow: 11px 8px 19px 0px rgb(2, 2, 2);
-  border-radius: 30px;
-  gap: 20px;
-}
-
-/* vasen */
-.card-img {
-  flex: 1;
-  object-fit: cover;
-}
-
-.card-img img {
-  width: 100px;
-}
-
-.card-diary {
-  flex: 4;
-}
-
-#bgimage {
-  background-image: url('../img/diary.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 300px;
-  height: 400px;
-}
-
+/* Responsive Design */
 @media screen and (max-width: 800px) {
   .forms {
     flex-direction: column;
   }
+
+  .paivakirja-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
-
-
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}

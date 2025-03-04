@@ -1,30 +1,187 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fi">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>Vite App - HyteGym</title>
+    <link rel="stylesheet" href="src/css/style.css"/>
   </head>
   <body>
-    <nav>
-      <ul>
-        <li><a href="./index.html">Home</a></li>
-        <li><a href="./about.html">About</a></li>
-      </ul>
+    <!-- Navigation bar -->
+    <nav class="clearfix">
+      <div id="logo">HyteGym</div>
+      <div class="nav-links">
+        <a class="box" href="#1">Koti</a>
+        <a class="box" href="#2">BMI laskin</a>
+        <a class="box" href="#3">Yhteystiedot</a>
+      </div>
     </nav>
+
+    <!-- Main Section -->
     <h2>Index / Kotisivu</h2>
     <ul>
       <li>
-        <a href="./src/pages/apitest.html" target="_blank"
-          >Linkki APItesteihin</a
-        >
+        <a href="./src/pages/apitest.html" target="_blank">Linkki APItesteihin</a>
       </li>
       <li>
         <a href="./src/pages/authtest.html" target="_blank">Linkki Auth</a>
       </li>
     </ul>
 
-    <script type="module" src="/src/js/index.js"></script>
+    <!-- Hero Section -->
+    <main class="hero">
+      <div class="slogan">
+        Miten
+        <span id="logooo">HyteGym</span>
+        auttaa sinua hyvinvointisi seuraamisessa
+      </div>
+    </main>
+
+    <!-- Contact Section -->
+    <div class="card">
+      <h3>Tämä on meidän tarinamme</h3>
+      <p>
+        <img class="valokuva" src="https://media.istockphoto.com/id/1325362038/vector/deadlift-barbell-icon-design-template-vector.jpg?s=170667a&w=0&k=20&c=BhyJiqkXWHREz_y11_f2-7WiehX8Sn1_yW4bIK5yFtU=" alt="Kuva kuntoilijasta"/>
+        HyteGym on perustettu vuonna 2021. Olemme joukko nuoria yrittäjiä, jotka uskovat HRv tiedon ja treeniohjelman voimaan hyvinvoinnin seurannassa.
+      </p>
+      <p>
+        Sykevälivaihtelu tai HRV:tä käytetään fysiologisiin mittauksiin kuten VO2-maksimaalinen hapenottokyky, SV-stressitestiin, suoritustasoon, anaerobinen kynnys ja harjoituksen tehokkuus.
+        Yhdistämällä HRV seurannan henkilökohtaiseen treeniohjelmaasi, voit saavuttaa nopeasti, tehokkaasti sekä ennen kaikkea turvallisesti uusia tasoja kehityksessä.
+      </p>
+      <p>
+        Ohjelmamme tukee kehitystäsi eri treeniohjelmien muodossa, tarjoaa päiväkirjan hyvinvointisi seurantaan sekä HRV tietojesi analysointiin. Voit saada kauttamme myös yhteyden terveydenhuollon ammattilaisiin, sekä personal trainer palveluihin.
+      </p>
+      <img src="https://cdn.pixabay.com/photo/2013/07/13/11/49/heart-158739_640.png" alt="Sydänkuva" class="kuva sydan"/>
+    </div>
+
+    <!-- BMI Calculator Section -->
+    <div id="2" class="bmilaskin">
+      <img src="https://rtaesthetics.co.uk/wp-content/uploads/2021/03/bmi-adult-fb-600x315-1.jpeg" alt="bmikuva" class="bmikuva"/>
+      <h2>Painoindeksilaskuri / BMI-laskuri</h2>
+      <p class="k">Painoindeksilaskurilla voit laskea pituuden ja painon perusteella painoindeksin (BMI, Body Mass Index).</p>
+      <p><label for="paino">Anna painosi:</label></p>
+      <input type="number" id="paino" name="paino" placeholder="kg" required/>
+      <p><label for="pituus">Anna pituutesi:</label></p>
+      <input type="number" id="pituus" name="pituus" placeholder="cm" required/>
+      <p><button id="bmi-button" onclick="calculateBMI()">Laske indeksi</button></p>
+      <div id="tulos">Mittaustuloksesi:</div>
+
+      <table>
+        <tr id="alipainonen">
+          <td>Alipaino</td>
+          <td>0 - 18.9</td>
+        </tr>
+        <tr id="normaali">
+          <td>Normaali paino</td>
+          <td>19 - 24.9</td>
+        </tr>
+        <tr id="ylipainonen">
+          <td>Ylipaino</td>
+          <td>25.0 - 40.0 tai enemmän</td>
+        </tr>
+      </table>
+      <p id="analyysi">Analyyysi: Täähän saat tietoa painoindeksistäsi</p>
+    </div>
+
+    <!-- Diary Section -->
+    <div id="paivakirja" class="paivakirja">
+      <div class="paivakirja-container">
+        <div class="paivakirja-card">
+          <div class="paivakirja-img">
+            <img src="https://www.tiinuska.fi/images/products/paivakirja_kissapinkki.png" alt="Päiväkirja - pinkki kissa" class="paivakirja-image"/>
+          </div>
+          <div class="paivakirja-content">
+            <h2>Päiväkirjamerkinnät</h2>
+            <textarea id="paivakirja-entry" placeholder="Kirjoita tänne merkintäsi..."></textarea>
+            <button id="save-paivakirja">Tallenna merkintä</button>
+            <div id="saved-paivakirja"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sign Up Form -->
+    <div id="signup-form">
+      <h2>Rekisteröidy</h2>
+      <p><label for="signup-username">Käyttäjätunnus:</label></p>
+      <input type="text" id="signup-username" placeholder="Käyttäjätunnus" required />
+      <p><label for="signup-email">Sähköposti:</label></p>
+      <input type="email" id="signup-email" placeholder="Sähköposti" required />
+      <p><label for="signup-password">Salasana:</label></p>
+      <input type="password" id="signup-password" placeholder="Salasana" required />
+      <p><button id="signup-button">Rekisteröidy</button></p>
+      <div id="signup-error-message"></div>
+    </div>
+
+    <!-- Login Form -->
+    <div id="login-form">
+      <h2>Kirjaudu sisään</h2>
+      <p><label for="login-username">Käyttäjätunnus:</label></p>
+      <input type="text" id="login-username" placeholder="Käyttäjätunnus" required />
+      <p><label for="login-password">Salasana:</label></p>
+      <input type="password" id="login-password" placeholder="Salasana" required />
+      <p><button id="login-button">Kirjaudu sisään</button></p>
+      <div id="login-error-message"></div>
+    </div>
+
+    <footer>
+      Copyright, meitsi
+    </footer>
+
+    <script>
+      window.onload = function () {
+        const bmiButton = document.getElementById("bmi-button");
+        bmiButton.addEventListener("click", calculateBMI);
+      };
+
+      function calculateBMI() {
+        const paino = Number(document.getElementById("paino").value);
+        const pituus = Number(document.getElementById("pituus").value) / 100;
+        let bmi = paino / (pituus * pituus);
+        bmi = bmi.toFixed(1);
+        let resultText = "Mittaustuloksesi: " + bmi;
+
+        resetTableHighlighting();
+
+        if (bmi < 18.5) {
+          analysis = "Paino on liian alhainen, pyydä lääkäriltä neuvoja.";
+          highlightRow("alipainonen");
+        } else if (bmi >= 18.5 && bmi <= 24.9) {
+          analysis = "Normaali paino, jossa ihmisen terveys on parhaimmillaan.";
+          highlightRow("normaali");
+        } else {
+          analysis = "Ylipaino voi lisätä riskejä sydänsairauksiin ja muihin terveysongelmiin.";
+          highlightRow("ylipainonen");
+        }
+
+        document.getElementById("tulos").innerHTML = resultText;
+        document.getElementById("analyysi").innerHTML = analysis;
+      }
+
+      function resetTableHighlighting() {
+        const rows = document.querySelectorAll("table tr");
+        rows.forEach(row => {
+          row.style.backgroundColor = "";
+        });
+      }
+
+      function highlightRow(rowId) {
+        const row = document.getElementById(rowId);
+        row.style.backgroundColor = "#6fdd6f";
+        row.style.borderColor = "#6fdd6f";
+      }
+
+      document.getElementById("save-paivakirja").addEventListener("click", function() {
+        const entryText = document.getElementById("paivakirja-entry").value;
+        if (entryText) {
+          document.getElementById("saved-paivakirja").innerHTML = "<strong>Merkintä tallennettu:</strong><br>" + entryText;
+          document.getElementById("saved-paivakirja").style.display = "block";
+          document.getElementById("paivakirja-entry").value = ""; 
+        } else {
+          alert("Kirjoita jotain päiväkirjaan ennen tallentamista!");
+        }
+      });
+    </script>
   </body>
 </html>
