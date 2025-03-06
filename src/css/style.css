@@ -14,6 +14,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   min-width: 320px;
   min-height: 100vh;
@@ -29,6 +33,9 @@ h3 {
   border-bottom: 1px solid rgb(184, 15, 117);
 }
 
+#bmi {
+  visibility: hidden;
+}
 a {
   font-weight: 500;
   color: #646cff;
@@ -47,7 +54,7 @@ a:hover {
   color: rgb(0, 0, 0);
 }
 
-/* Navigation Styles */
+/* Navigaatio tyyli */
 nav {
   display: flex;
   justify-content: space-between;
@@ -56,6 +63,20 @@ nav {
   padding: 10px 20px;
   border-bottom: 2px solid whitesmoke;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+#login-nav-btn {
+  background-color: #1e272e;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
 #logo {
@@ -114,7 +135,7 @@ nav {
   background-color: lightgrey;
   max-width: 700px;
   width: 100%;
-  height: 500px;
+  min-height: 500px;
   padding: 10px;
   margin: 40px auto;
   text-align: center;
@@ -142,23 +163,6 @@ footer {
   color: black;
   text-align: center;
   padding-top: 20px;
-}
-
-/* BMILaskin Styles */
-.bmikuva {
-  position: relative;
-  width: 400px;
-}
-
-.bmilaskin {
-  background-color: #fdfdfd;
-  padding: 30px;
-  border-radius: 10px;
-  max-width: 400px;
-  margin: 40px auto;
-  margin-bottom: 70px;
-  text-align: left;
-  box-shadow: 0 8px 20px -6px rgba(0, 0, 0, 0.3);
 }
 
 .bmilaskin input {
@@ -343,4 +347,108 @@ table tr {
   button {
     background-color: #f9f9f9;
   }
+}
+
+/*uusi
+/* Login Form Styles */
+.form-container {
+  background-color: #f7f7f7;
+  padding: 30px;
+  border-radius: 8px;
+  max-width: 400px;
+  margin: 50px auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.form-container h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.form-content input {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.form-content input:focus {
+  outline: none;
+  border-color: #1e272e;
+  box-shadow: 0 0 5px rgba(30, 39, 46, 0.2);
+}
+
+.form-content button {
+  background-color: #1e272e;
+  color: white;
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.form-content button:hover {
+  background-color: #60666b;
+}
+
+#login-error-message {
+  color: red;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+/* Responsiivisuus kirjautumiselle */
+@media screen and (max-width: 800px) {
+  .form-container {
+    width: 90%;
+    margin: 40px auto;
+  }
+}
+/* Piilotetaan rekisteröintilomake aluksi */
+.register-container {
+  display: none;
+}
+
+/* Lisää visuaaliset tyylit tarpeen mukaan */
+.login-container, .register-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #f7f7f7;
+  border-radius: 10px;
+}
+
+form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #1e272e;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #60666b;
+}
+
+a {
+  color: #1e272e;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #535bf2;
 }

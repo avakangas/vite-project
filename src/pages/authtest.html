@@ -1,115 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-  </head>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Käyttäjähallinta</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Käyttäjähallintasovellus</h1>
+    
+    <!-- Auth forms -->
+    <div class="auth-forms">
+      <!-- Login form -->
+      <form class="loginForm form">
+        <h2>Kirjaudu sisään</h2>
+        <div class="form-group">
+          <label for="login-username">Käyttäjänimi:</label>
+          <input type="text" id="login-username" name="username" required>
+        </div>
+        <div class="form-group">
+          <label for="login-password">Salasana:</label>
+          <input type="password" id="login-password" name="password" required>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="button primary">Kirjaudu</button>
+          <p>Ei käyttäjätiliä? <button type="button" id="goToRegister" class="button-link">Rekisteröidy</button></p>
+        </div>
+      </form>
+      
+      <!-- Register form -->
+      <form class="registerForm form">
+        <h2>Rekisteröidy</h2>
+        <div class="form-group">
+          <label for="username">Käyttäjänimi:</label>
+          <input type="text" id="username" name="username" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Sähköposti:</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Salasana:</label>
+          <input type="password" id="password" name="password" required>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="button primary">Rekisteröidy</button>
+          <p>Onko sinulla jo tili? <button type="button" id="goToLogin" class="button-link">Kirjaudu sisään</button></p>
+        </div>
+      </form>
+    </div>
 
-  <body>
+    <!-- User info section (will display after login) -->
+    <div id="userInfoSection" class="user-info-section" style="display:none;">
+      <h2>Olet kirjautunut sisään</h2>
+      <p id="user-info"></p>
+      <button id="logoutButton" class="button primary">Kirjaudu ulos</button>
+    </div>
 
-    <h3>REGISTER</h3>
-
-    <p>
-      Lisää käyttäjiä formin avulla. Formi lisää uuden käyttäjän
-      nappulasta 'Add User'.
-    </p>
-
-    <!-- https://www.w3schools.com/css/css_form.asp -->
-    <!-- https://www.w3schools.com/css/tryit.asp?filename=trycss_form_padding -->
-
-    <pre style="overflow: auto">
-    POST http://localhost:3000/api/users
-    content-type: application/json
-
-    {
-      "username": "Uusi käyttäjä",
-      "password": "salakala",
-      "email": "newuser@example.com"
-    }
-    </pre>
-
-    <form class="registerForm">
-      <label for="username">Username</label>
-      <input
-        id="username"
-        type="text"
-        name="username"
-        placeholder="Uusi käyttäjä"
-      />
-      <label for="password">Password</label>
-      <input
-        id="password"
-        type="password"
-        name="password"
-        placeholder="salakala"
-      />
-      <label for="password">Email</label>
-      <input
-        id="email"
-        type="email"
-        name="email"
-        placeholder="newuser@example.com"
-      />
-      <input
-        name="submit"
-        type="submit"
-        value="Add User"
-        class="postuser"
-      />
-    </form>
+    <!-- Error message section -->
+    <div id="errorMessage" class="error-message" style="display:none;">
+      <p id="errorText"></p>
+    </div>
   </div>
 
-    <h3>LOGIN</h3>
-    <pre><code>
-      # Login
-      POST http://localhost:3000/api/auth/login
-      content-type: application/json
-
-      {
-        "username": "user",
-        "password": "secret"
-      }
-      </code></pre>
-    <div>
-      <form class="loginForm">
-        <label for="username">Username</label>
-        <input type="text" name="username" placeholder="name" value="name" />
-        <label for="password">Password</label>
-        <input
-          type="password"
-          name="password"
-          placeholder="name123"
-          value="name"
-        />
-        <input
-          name="submit"
-          type="submit"
-          value="Login and get new token"
-          class="loginform"
-        />
-      </form>
-      <br />
-      <div id="loginResponse"></div>
-    </div>
-    <hr />
-    <div>
-      <pre><code>
-        # Get user info by token (requires token)
-        GET http://localhost:3000/api/auth/me
-        Authorization: Bearer (put-user-token-here)</code></pre>
-      <button id="meRequest">Make an "authenticated" request</button>
-      <br />
-      <div id="meResponse"></div>
-    </div>
-    <hr />
-    <div>
-      <button id="clearButton">Clear localStorage</button>
-      <br />
-      <code id="clearResponse"></code>
-    </div>
-  </body>
-
-  <script type="module" src="/src/js/auth.js"></script>
+  <script src="js/auth.js"></script>
+</body>
 </html>
