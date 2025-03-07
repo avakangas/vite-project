@@ -4,24 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Käyttäjähallinta</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="src\styles\auth.css">
 </head>
 <body>
   <div class="container">
     <h1>Käyttäjähallintasovellus</h1>
     
-    <!-- Auth forms -->
+    <!-- Auth forms section -->
     <div class="auth-forms">
       <!-- Login form -->
-      <form class="loginForm form">
+      <form class="loginForm form" method="post">
         <h2>Kirjaudu sisään</h2>
         <div class="form-group">
           <label for="login-username">Käyttäjänimi:</label>
-          <input type="text" id="login-username" name="username" required>
+          <input type="text" id="login-username" name="username" autocomplete="username" required>
         </div>
         <div class="form-group">
           <label for="login-password">Salasana:</label>
-          <input type="password" id="login-password" name="password" required>
+          <input type="password" id="login-password" name="password" autocomplete="current-password" required>
         </div>
         <div class="form-actions">
           <button type="submit" class="button primary">Kirjaudu</button>
@@ -30,19 +30,19 @@
       </form>
       
       <!-- Register form -->
-      <form class="registerForm form">
+      <form class="registerForm form" method="post">
         <h2>Rekisteröidy</h2>
         <div class="form-group">
           <label for="username">Käyttäjänimi:</label>
-          <input type="text" id="username" name="username" required>
+          <input type="text" id="username" name="username" autocomplete="username" required>
         </div>
         <div class="form-group">
           <label for="email">Sähköposti:</label>
-          <input type="email" id="email" name="email" required>
+          <input type="email" id="email" name="email" autocomplete="email" required>
         </div>
         <div class="form-group">
           <label for="password">Salasana:</label>
-          <input type="password" id="password" name="password" required>
+          <input type="password" id="password" name="password" autocomplete="new-password" required>
         </div>
         <div class="form-actions">
           <button type="submit" class="button primary">Rekisteröidy</button>
@@ -50,20 +50,39 @@
         </div>
       </form>
     </div>
-
-    <!-- User info section (will display after login) -->
-    <div id="userInfoSection" class="user-info-section" style="display:none;">
-      <h2>Olet kirjautunut sisään</h2>
-      <p id="user-info"></p>
-      <button id="logoutButton" class="button primary">Kirjaudu ulos</button>
+    
+    <!-- User Info Section (shown after login) -->
+    <div id="meRequest" class="panel" style="display: none;">
+      <div class="panel-header">
+        <h2>Käyttäjätietosi</h2>
+        <div class="panel-actions">
+          <button id="clearButton" class="button danger">Kirjaudu ulos</button>
+        </div>
+      </div>
+      <div id="meResponse" class="panel-content">
+        <!-- User info will be displayed here -->
+      </div>
     </div>
-
-    <!-- Error message section -->
-    <div id="errorMessage" class="error-message" style="display:none;">
-      <p id="errorText"></p>
+    
+    <!-- User List Section (shown after login) -->
+    <div id="userListContainer" class="panel" style="display: none;">
+      <div class="panel-header">
+        <h2>Käyttäjälista</h2>
+        <div class="panel-actions">
+          <button id="loadUsers" class="button primary">Päivitä lista</button>
+        </div>
+      </div>
+      <div id="userList" class="panel-content">
+        <!-- User list will be displayed here -->
+      </div>
     </div>
+    
+    <!-- Notification container -->
+    <div id="notificationContainer"></div>
+    
   </div>
-
-  <script src="js/auth.js"></script>
+  
+  <!-- JS files -->
+  <script src="src\js\auth.js"></script>
 </body>
 </html>

@@ -1,101 +1,219 @@
-// Funktio hakee käyttäjän päiväkirjamerkinnät
-const getEntries = async () => {
-  const url = 'http://localhost:3000/api/paivakirja';
+// components/DiaryEntries/EntryList.jsx
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { getEntries } from '../../services/entryService';
 
-  const token = localStorage.getItem('token');
-  const headers = { Authorization: `Bearer ${token}` };
+const EntryList = () => {
+  const [entries, setEntries] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
 
-  const options = {
-    headers: headers,
+  useEffect(() => {
+    const fetchEntries = async () => {
+      try {
+        const data = await getEntries();
+        setEntries(data);
+      } catch (err) {
+        setError('Failed to load diary entries');
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchEntries();
+  }, []);
+
+  if (loading) {
+    return <div className="loading">Loading entries...</div>;
+  }
+
+  if (error) {
+    return <div className="error-message">{error}</div>;
+  }
+
+  if (entries.length === 0) {
+    return (
+      <div className="entries-container">
+        <div className="entries-header">
+          <h2>My Diary Entries</h2>
+          <Link to="/add-entry" className="btn-primary">Add New Entry</Link>
+        </div>
+        <p>You haven't created any entries yet.</p>
+      </div>
+    );
+  }
+
+  // Format date from YYYY-MM-DD to a more readable format
+  const formatDate = (dateString) => {
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    return new Date(dateString).toLocaleDateString(undefined, options);
   };
 
-  try {
-    const entries = await fetchData(url, options); // Hae merkinnät
-    if (entries.error) {
-      console.log('Virhe päiväkirjamerkintöjen haussa!');
-      showSnackbar('Virhe päiväkirjamerkintöjen hakemisessa!', 'error');
-      return;
-    }
-
-    const savedEntriesDiv = document.querySelector('#saved-paivakirja');
-    savedEntriesDiv.innerHTML = ''; // Tyhjennetään vanhat merkinnät
-
-    // Lisää kaikki merkinnät näkyviin
-    entries.forEach((entry) => {
-      const entryDiv = document.createElement('div');
-      entryDiv.classList.add('entry');
-      entryDiv.innerHTML = `
-        <p><strong>Päivämäärä:</strong> ${entry.entry_date}</p>
-        <p><strong>Mieli:</strong> ${entry.mood}</p>
-        <p><strong>Paino:</strong> ${entry.weight} kg</p>
-        <p><strong>Unet:</strong> ${entry.sleep_hours} tuntia</p>
-        <p><strong>Huomioita:</strong> ${entry.notes}</p>
-        <small>${entry.date}</small>
-      `;
-      savedEntriesDiv.appendChild(entryDiv);
-    });
-  } catch (error) {
-    console.error('Virhe päiväkirjamerkintöjen haussa:', error);
-    showSnackbar('Virhe palvelimelta!', 'error');
-  }
+  return (
+    <div className="entries-container">
+      <div className="entries-header">
+        <h2>My Diary Entries</h2>
+        <Link to="/add-entry" className="btn-primary">Add New Entry</Link>
+      </div>
+      <div className="entry-list">
+        {entries.map((entry) => (
+          <div key={entry.entry_id} className="entry-card">
+            <div className="entry-date">{formatDate(entry.entry_date)}</div>
+            <div className="entry-details">
+              <div className="entry-item">
+                <span className="label">Mood:</span> {entry.mood}
+              </div>
+              <div className="entry-item">
+                <span className="label">Weight:</span> {entry.weight} kg
+              </div>
+              <div className="entry-item">
+                <span className="label">Sleep:</span> {entry.sleep_hours} hours
+              </div>
+              {entry.notes && (
+                <div className="entry-notes">
+                  <span className="label">Notes:</span>
+                  <p>{entry.notes}</p>
+                </div>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 };
 
-// Funktio tallentaa uuden päiväkirjamerkinnän
-const savePaivakirjaEntry = async () => {
-  const entryText = document.querySelector('#paivakirja-entry').value.trim();
-  const mood = document.querySelector('#mood').value.trim();  // Käyttäjän valitsema mieliala
-  const weight = document.querySelector('#weight').value.trim(); // Käyttäjän syöttämä paino
-  const sleepHours = document.querySelector('#sleep-hours').value.trim(); // Käyttäjän syöttämä uniaika
-  const notes = document.querySelector('#notes').value.trim();  // Käyttäjän lisäämät huomioita
+export default EntryList;
 
-  if (!entryText || !mood || !weight || !sleepHours) {
-    showSnackbar('Täytä kaikki kentät ennen tallentamista!', 'error');
-    return;
-  }
+// components/DiaryEntries/EntryForm.jsx
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { addEntry } from '../../services/entryService';
 
-  const newEntry = {
-    entry_date: new Date().toISOString(),  // Päivämäärä
-    mood: mood,
-    weight: weight,
-    sleep_hours: sleepHours,
-    notes: notes,
+const EntryForm = () => {
+  const [formData, setFormData] = useState({
+    entry_date: new Date().toISOString().split('T')[0], // Default to today
+    mood: '',
+    weight: '',
+    sleep_hours: '',
+    notes: ''
+  });
+  const [error, setError] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
   };
 
-  const url = 'http://localhost:3000/api/paivakirja';
-  const token = localStorage.getItem('token');
-  const options = {
-    body: JSON.stringify(newEntry),
-    method: 'POST',
-    headers: {
-      'Content-type': 'application/json',
-      'Authorization': `Bearer ${token}`,
-    },
-  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+    setError('');
 
-  try {
-    const response = await fetchData(url, options);  // Lähetetään uusi merkintä
-    if (response.error) {
-      console.log('Virhe tallentamisessa:', response.error);
-      showSnackbar('Virhe tallentamisessa!', 'error');
-      return;
+    try {
+      await addEntry(formData);
+      navigate('/');
+    } catch (err) {
+      setError(err.message || 'Failed to add entry');
+    } finally {
+      setIsLoading(false);
     }
+  };
 
-    showSnackbar('Päiväkirjamerkintä tallennettu!', 'success');
-    document.querySelector('#paivakirja-entry').value = '';  // Tyhjennetään kenttä
-    document.querySelector('#mood').value = '';  // Tyhjennetään mieliala kenttä
-    document.querySelector('#weight').value = '';  // Tyhjennetään paino kenttä
-    document.querySelector('#sleep-hours').value = '';  // Tyhjennetään unet kenttä
-    document.querySelector('#notes').value = '';  // Tyhjennetään huomioita kenttä
-
-    getEntries();  // Päivitetään näkyvät merkinnät
-  } catch (error) {
-    console.error('Virhe tallentamisessa:', error);
-    showSnackbar('Virhe palvelimelta!', 'error');
-  }
+  return (
+    <div className="form-container">
+      <h2>Add New Diary Entry</h2>
+      {error && <div className="error-message">{error}</div>}
+      <form onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label htmlFor="entry_date">Date</label>
+          <input
+            type="date"
+            id="entry_date"
+            name="entry_date"
+            value={formData.entry_date}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="mood">Mood</label>
+          <input
+            type="text"
+            id="mood"
+            name="mood"
+            value={formData.mood}
+            onChange={handleChange}
+            minLength="3"
+            maxLength="25"
+            required
+            placeholder="How are you feeling today?"
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="weight">Weight (kg)</label>
+          <input
+            type="number"
+            id="weight"
+            name="weight"
+            value={formData.weight}
+            onChange={handleChange}
+            min="2"
+            max="200"
+            step="0.1"
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="sleep_hours">Sleep Hours</label>
+          <input
+            type="number"
+            id="sleep_hours"
+            name="sleep_hours"
+            value={formData.sleep_hours}
+            onChange={handleChange}
+            min="0"
+            max="24"
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="notes">Notes</label>
+          <textarea
+            id="notes"
+            name="notes"
+            value={formData.notes}
+            onChange={handleChange}
+            rows="4"
+            maxLength="1500"
+            placeholder="Any additional notes for today..."
+          ></textarea>
+        </div>
+        <div className="form-actions">
+          <button 
+            type="button" 
+            className="btn-secondary"
+            onClick={() => navigate('/')}
+          >
+            Cancel
+          </button>
+          <button 
+            type="submit" 
+            className="btn-primary" 
+            disabled={isLoading}
+          >
+            {isLoading ? 'Saving...' : 'Save Entry'}
+          </button>
+        </div>
+      </form>
+    </div>
+  );
 };
 
-// Käytetään tätä, kun haluamme näyttää tallennetut merkinnät
-getEntries();
-
-// Varmista, että tallennusnappi käyttää tätä toimintoa
-document.querySelector('#save-paivakirja').addEventListener('click', savePaivakirjaEntry);
+export default EntryForm;
