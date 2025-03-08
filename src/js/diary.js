@@ -1,219 +1,232 @@
-// components/DiaryEntries/EntryList.jsx
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { getEntries } from '../../services/entryService';
+/**
+ * Diary Frontend JavaScript
+ * This file handles the diary entry functionality including:
+ * - Fetching and displaying user's diary entries
+ * - Submitting new diary entries
+ * - Handling authentication
+ */
 
-const EntryList = () => {
-  const [entries, setEntries] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('');
+// Global variables
+let token = null;
+const apiUrl = 'http://localhost:3000/api';
+let userId = null;
 
-  useEffect(() => {
-    const fetchEntries = async () => {
-      try {
-        const data = await getEntries();
-        setEntries(data);
-      } catch (err) {
-        setError('Failed to load diary entries');
-        console.error(err);
-      } finally {
-        setLoading(false);
-      }
-    };
+// DOM elements
+const diaryForm = document.getElementById('diary-form');
+const entriesContainer = document.getElementById('entries-container');
+const loginForm = document.getElementById('login-form');
+const logoutBtn = document.getElementById('logout-btn');
+const messageContainer = document.getElementById('message-container');
+const authContainer = document.getElementById('auth-container');
+const diaryContainer = document.getElementById('diary-container');
 
+// Check if user is logged in
+const checkAuth = () => {
+  token = localStorage.getItem('token');
+  if (token) {
+    authContainer.style.display = 'none';
+    diaryContainer.style.display = 'block';
+    fetchUserInfo();
     fetchEntries();
-  }, []);
-
-  if (loading) {
-    return <div className="loading">Loading entries...</div>;
+  } else {
+    authContainer.style.display = 'block';
+    diaryContainer.style.display = 'none';
   }
-
-  if (error) {
-    return <div className="error-message">{error}</div>;
-  }
-
-  if (entries.length === 0) {
-    return (
-      <div className="entries-container">
-        <div className="entries-header">
-          <h2>My Diary Entries</h2>
-          <Link to="/add-entry" className="btn-primary">Add New Entry</Link>
-        </div>
-        <p>You haven't created any entries yet.</p>
-      </div>
-    );
-  }
-
-  // Format date from YYYY-MM-DD to a more readable format
-  const formatDate = (dateString) => {
-    const options = { year: 'numeric', month: 'long', day: 'numeric' };
-    return new Date(dateString).toLocaleDateString(undefined, options);
-  };
-
-  return (
-    <div className="entries-container">
-      <div className="entries-header">
-        <h2>My Diary Entries</h2>
-        <Link to="/add-entry" className="btn-primary">Add New Entry</Link>
-      </div>
-      <div className="entry-list">
-        {entries.map((entry) => (
-          <div key={entry.entry_id} className="entry-card">
-            <div className="entry-date">{formatDate(entry.entry_date)}</div>
-            <div className="entry-details">
-              <div className="entry-item">
-                <span className="label">Mood:</span> {entry.mood}
-              </div>
-              <div className="entry-item">
-                <span className="label">Weight:</span> {entry.weight} kg
-              </div>
-              <div className="entry-item">
-                <span className="label">Sleep:</span> {entry.sleep_hours} hours
-              </div>
-              {entry.notes && (
-                <div className="entry-notes">
-                  <span className="label">Notes:</span>
-                  <p>{entry.notes}</p>
-                </div>
-              )}
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
 };
 
-export default EntryList;
-
-// components/DiaryEntries/EntryForm.jsx
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { addEntry } from '../../services/entryService';
-
-const EntryForm = () => {
-  const [formData, setFormData] = useState({
-    entry_date: new Date().toISOString().split('T')[0], // Default to today
-    mood: '',
-    weight: '',
-    sleep_hours: '',
-    notes: ''
-  });
-  const [error, setError] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
-  const navigate = useNavigate();
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsLoading(true);
-    setError('');
-
-    try {
-      await addEntry(formData);
-      navigate('/');
-    } catch (err) {
-      setError(err.message || 'Failed to add entry');
-    } finally {
-      setIsLoading(false);
+// Fetch user information
+const fetchUserInfo = async () => {
+  try {
+    const response = await fetch(`${apiUrl}/auth/me`, {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    });
+    
+    if (response.ok) {
+      const userData = await response.json();
+      userId = userData.user_id;
+      document.getElementById('username-display').textContent = userData.username;
+    } else {
+      // Token might be invalid or expired
+      localStorage.removeItem('token');
+      checkAuth();
     }
-  };
-
-  return (
-    <div className="form-container">
-      <h2>Add New Diary Entry</h2>
-      {error && <div className="error-message">{error}</div>}
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="entry_date">Date</label>
-          <input
-            type="date"
-            id="entry_date"
-            name="entry_date"
-            value={formData.entry_date}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="mood">Mood</label>
-          <input
-            type="text"
-            id="mood"
-            name="mood"
-            value={formData.mood}
-            onChange={handleChange}
-            minLength="3"
-            maxLength="25"
-            required
-            placeholder="How are you feeling today?"
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="weight">Weight (kg)</label>
-          <input
-            type="number"
-            id="weight"
-            name="weight"
-            value={formData.weight}
-            onChange={handleChange}
-            min="2"
-            max="200"
-            step="0.1"
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="sleep_hours">Sleep Hours</label>
-          <input
-            type="number"
-            id="sleep_hours"
-            name="sleep_hours"
-            value={formData.sleep_hours}
-            onChange={handleChange}
-            min="0"
-            max="24"
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="notes">Notes</label>
-          <textarea
-            id="notes"
-            name="notes"
-            value={formData.notes}
-            onChange={handleChange}
-            rows="4"
-            maxLength="1500"
-            placeholder="Any additional notes for today..."
-          ></textarea>
-        </div>
-        <div className="form-actions">
-          <button 
-            type="button" 
-            className="btn-secondary"
-            onClick={() => navigate('/')}
-          >
-            Cancel
-          </button>
-          <button 
-            type="submit" 
-            className="btn-primary" 
-            disabled={isLoading}
-          >
-            {isLoading ? 'Saving...' : 'Save Entry'}
-          </button>
-        </div>
-      </form>
-    </div>
-  );
+  } catch (error) {
+    showMessage('Error fetching user data: ' + error.message, 'error');
+  }
 };
 
-export default EntryForm;
+// Fetch all diary entries for the logged in user
+const fetchEntries = async () => {
+  try {
+    const response = await fetch(`${apiUrl}/entries`, {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    });
+    
+    if (response.ok) {
+      const entries = await response.json();
+      displayEntries(entries);
+    } else {
+      showMessage('Failed to fetch entries. Please try again.', 'error');
+    }
+  } catch (error) {
+    showMessage('Error fetching entries: ' + error.message, 'error');
+  }
+};
+
+// Display entries in the DOM
+const displayEntries = (entries) => {
+  entriesContainer.innerHTML = '';
+  
+  if (entries.length === 0) {
+    entriesContainer.innerHTML = '<p>No diary entries yet. Add your first one!</p>';
+    return;
+  }
+  
+  // Sort entries by date (newest first)
+  entries.sort((a, b) => new Date(b.entry_date) - new Date(a.entry_date));
+  
+  entries.forEach(entry => {
+    const entryDate = new Date(entry.entry_date).toLocaleDateString();
+    
+    const entryElement = document.createElement('div');
+    entryElement.className = 'entry-card';
+    
+    entryElement.innerHTML = `
+      <div class="entry-header">
+        <h3>${entryDate}</h3>
+        <span class="mood-badge">${entry.mood}</span>
+      </div>
+      <div class="entry-stats">
+        <span><strong>Weight:</strong> ${entry.weight} kg</span>
+        <span><strong>Sleep:</strong> ${entry.sleep_hours} hours</span>
+      </div>
+      <div class="entry-notes">
+        <p>${entry.notes || 'No notes'}</p>
+      </div>
+    `;
+    
+    entriesContainer.appendChild(entryElement);
+  });
+};
+
+// Add a new diary entry
+const addEntry = async (entryData) => {
+  try {
+    const response = await fetch(`${apiUrl}/entries`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      },
+      body: JSON.stringify(entryData)
+    });
+    
+    const data = await response.json();
+    
+    if (response.ok) {
+      showMessage('Entry added successfully!', 'success');
+      diaryForm.reset();
+      fetchEntries(); // Refresh the entries list
+    } else {
+      showMessage(`Failed to add entry: ${data.message || 'Unknown error'}`, 'error');
+      if (data.errors) {
+        data.errors.forEach(err => {
+          showMessage(`Field ${err.field}: ${err.message}`, 'error');
+        });
+      }
+    }
+  } catch (error) {
+    showMessage('Error adding entry: ' + error.message, 'error');
+  }
+};
+
+// Handle login
+const login = async (username, password) => {
+  try {
+    const response = await fetch(`${apiUrl}/auth/login`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ username, password })
+    });
+    
+    const data = await response.json();
+    
+    if (response.ok && data.token) {
+      localStorage.setItem('token', data.token);
+      showMessage('Login successful!', 'success');
+      checkAuth();
+    } else {
+      showMessage(`Login failed: ${data.message || 'Unknown error'}`, 'error');
+    }
+  } catch (error) {
+    showMessage('Error during login: ' + error.message, 'error');
+  }
+};
+
+// Helper function to show messages
+const showMessage = (message, type = 'info') => {
+  messageContainer.innerHTML = `<div class="message ${type}">${message}</div>`;
+  
+  // Clear message after 5 seconds
+  setTimeout(() => {
+    messageContainer.innerHTML = '';
+  }, 5000);
+};
+
+// Event Listeners
+if (diaryForm) {
+  diaryForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    
+    const formData = new FormData(diaryForm);
+    const entryData = {
+      entry_date: formData.get('entry_date'),
+      mood: formData.get('mood'),
+      weight: parseFloat(formData.get('weight')),
+      sleep_hours: parseInt(formData.get('sleep_hours')),
+      notes: formData.get('notes')
+    };
+    
+    addEntry(entryData);
+  });
+}
+
+if (loginForm) {
+  loginForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+    
+    login(username, password);
+  });
+}
+
+if (logoutBtn) {
+  logoutBtn.addEventListener('click', () => {
+    localStorage.removeItem('token');
+    showMessage('Logged out successfully', 'success');
+    checkAuth();
+  });
+}
+
+// Set today's date as the default for the entry date input
+const setDefaultDate = () => {
+  const dateInput = document.getElementById('entry_date');
+  if (dateInput) {
+    const today = new Date().toISOString().split('T')[0];
+    dateInput.value = today;
+  }
+};
+
+// Initialize the application
+document.addEventListener('DOMContentLoaded', () => {
+  checkAuth();
+  setDefaultDate();
+});

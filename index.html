@@ -101,7 +101,77 @@
         </div>
       </div>
     </div>
-    
+    <div class="container">
+      <header>
+          <h1>My Personal Diary</h1>
+          <div id="message-container"></div>
+      </header>
+
+      <!-- Authentication Container -->
+      <div id="auth-container">
+          <h2>Login to Your Diary</h2>
+          <form id="login-form">
+              <div class="form-group">
+                  <label for="username">Username</label>
+                  <input type="text" id="username" name="username" required>
+              </div>
+              <div class="form-group">
+                  <label for="password">Password</label>
+                  <input type="password" id="password" name="password" required>
+              </div>
+              <button type="submit" class="btn">Login</button>
+          </form>
+      </div>
+
+      <!-- Diary Container (hidden until login) -->
+      <div id="diary-container" style="display: none;">
+          <div class="user-info">
+              <p>Welcome, <span id="username-display"></span></p>
+              <button id="logout-btn" class="btn-secondary">Logout</button>
+          </div>
+
+          <div class="diary-section">
+              <h2>Add New Entry</h2>
+              <form id="diary-form">
+                  <div class="form-group">
+                      <label for="entry_date">Date</label>
+                      <input type="date" id="entry_date" name="entry_date" required>
+                  </div>
+                  <div class="form-group">
+                      <label for="mood">Mood</label>
+                      <select id="mood" name="mood" required>
+                          <option value="Great">Great</option>
+                          <option value="Good">Good</option>
+                          <option value="Okay">Okay</option>
+                          <option value="Bad">Bad</option>
+                          <option value="Terrible">Terrible</option>
+                      </select>
+                  </div>
+                  <div class="form-group">
+                      <label for="weight">Weight (kg)</label>
+                      <input type="number" id="weight" name="weight" step="0.1" required>
+                  </div>
+                  <div class="form-group">
+                      <label for="sleep_hours">Sleep (hours)</label>
+                      <input type="number" id="sleep_hours" name="sleep_hours" min="0" max="24" required>
+                  </div>
+                  <div class="form-group">
+                      <label for="notes">Notes</label>
+                      <textarea id="notes" name="notes" rows="4"></textarea>
+                  </div>
+                  <button type="submit" class="btn">Save Entry</button>
+              </form>
+          </div>
+
+          <div class="entries-section">
+              <h2>My Diary Entries</h2>
+              <div id="entries-container">
+                  <!-- Entries will be loaded here dynamically -->
+              </div>
+          </div>
+      </div>
+  </div>
+  
     <footer>
       Copyright, meitsi
     </footer>
@@ -115,7 +185,7 @@
         const loginButton = document.getElementById("login-nav-btn");
         loginButton.addEventListener("click", function() {
           // Ohjaa käyttäjä authtest.html-sivulle
-          window.location.href = "./src/pages/authtest.html";
+          window.location.href = "/src/pages/authtest.html";
         });
       };
 

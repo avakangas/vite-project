@@ -1,88 +1,137 @@
 <!DOCTYPE html>
-<html lang="fi">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Käyttäjähallinta</title>
-  <link rel="stylesheet" href="src\styles\auth.css">
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Authentication System</title>
+  <link rel="stylesheet" href="/src/css/auth.css">
 </head>
+
 <body>
   <div class="container">
-    <h1>Käyttäjähallintasovellus</h1>
-    
-    <!-- Auth forms section -->
-    <div class="auth-forms">
-      <!-- Login form -->
-      <form class="loginForm form" method="post">
-        <h2>Kirjaudu sisään</h2>
+    <div class="card">
+      <h2>Rekisteröidy</h2>
+      <p>
+        Lisää käyttäjiä lomakkeen avulla. Lomake lisää uuden käyttäjän
+        napsauttamalla "Lisää käyttäjä" -painiketta.
+      </p>
+
+      <pre>
+POST http://localhost:3000/api/users
+content-type: application/json
+
+{
+  "username": "Uusi käyttäjä",
+  "password": "salakala",
+  "email": "newuser@example.com"
+}</pre>
+
+      <form class="registerForm" method="post" onsubmit="return false;">
         <div class="form-group">
-          <label for="login-username">Käyttäjänimi:</label>
-          <input type="text" id="login-username" name="username" autocomplete="username" required>
+          <label for="username">Käyttäjänimi</label>
+          <input
+            id="username"
+            type="text"
+            name="username"
+            placeholder="Käyttäjänimi"
+          />
         </div>
+        
         <div class="form-group">
-          <label for="login-password">Salasana:</label>
-          <input type="password" id="login-password" name="password" autocomplete="current-password" required>
+          <label for="password">Salasana (vähintään 8 merkkiä)</label>
+          <input
+            id="password"
+            type="password"
+            name="password"
+            placeholder="Salasana"
+          />
+          <small id="passwordHelp" class="form-text">Salasanan tulee olla vähintään 8 merkkiä pitkä</small>
         </div>
-        <div class="form-actions">
-          <button type="submit" class="button primary">Kirjaudu</button>
-          <p>Ei käyttäjätiliä? <button type="button" id="goToRegister" class="button-link">Rekisteröidy</button></p>
+        
+        <div class="form-group">
+          <label for="email">Sähköposti</label>
+          <input
+            id="email"
+            type="email"
+            name="email"
+            placeholder="Sähköposti"
+          />
         </div>
+        
+        <input
+          name="submit"
+          type="submit"
+          value="Lisää käyttäjä"
+          class="postuser"
+        />
       </form>
       
-      <!-- Register form -->
-      <form class="registerForm form" method="post">
-        <h2>Rekisteröidy</h2>
+      <div id="registerNotification" class="notification"></div>
+    </div>
+
+    <div class="card">
+      <h2>Kirjaudu sisään</h2>
+      
+      <pre>
+# Login
+POST http://localhost:3000/api/auth/login
+content-type: application/json
+
+{
+  "username": "user",
+  "password": "secret"
+}</pre>
+
+      <form class="loginForm" method="post" onsubmit="return false;">
         <div class="form-group">
-          <label for="username">Käyttäjänimi:</label>
-          <input type="text" id="username" name="username" autocomplete="username" required>
+          <label for="login-username">Käyttäjänimi</label>
+          <input id="login-username" type="text" name="username" placeholder="Käyttäjänimi" />
         </div>
+        
         <div class="form-group">
-          <label for="email">Sähköposti:</label>
-          <input type="email" id="email" name="email" autocomplete="email" required>
+          <label for="login-password">Salasana</label>
+          <input
+            id="login-password"
+            type="password"
+            name="password"
+            placeholder="Salasana"
+          />
         </div>
-        <div class="form-group">
-          <label for="password">Salasana:</label>
-          <input type="password" id="password" name="password" autocomplete="new-password" required>
-        </div>
-        <div class="form-actions">
-          <button type="submit" class="button primary">Rekisteröidy</button>
-          <p>Onko sinulla jo tili? <button type="button" id="goToLogin" class="button-link">Kirjaudu sisään</button></p>
-        </div>
+        
+        <input
+          name="submit"
+          type="submit"
+          value="Kirjaudu sisään"
+          class="loginform"
+        />
       </form>
+      
+      <div id="loginNotification" class="notification"></div>
     </div>
-    
-    <!-- User Info Section (shown after login) -->
-    <div id="meRequest" class="panel" style="display: none;">
-      <div class="panel-header">
-        <h2>Käyttäjätietosi</h2>
-        <div class="panel-actions">
-          <button id="clearButton" class="button danger">Kirjaudu ulos</button>
-        </div>
-      </div>
-      <div id="meResponse" class="panel-content">
-        <!-- User info will be displayed here -->
-      </div>
+
+    <div class="card">
+      <h2>Käyttäjätiedot</h2>
+      
+      <pre>
+# Get user info by token (requires token)
+GET http://localhost:3000/api/auth/me
+Authorization: Bearer (put-user-token-here)</pre>
+
+      <button id="meRequest">Tee autentikoitu pyyntö</button>
+      <div id="meNotification" class="notification"></div>
     </div>
-    
-    <!-- User List Section (shown after login) -->
-    <div id="userListContainer" class="panel" style="display: none;">
-      <div class="panel-header">
-        <h2>Käyttäjälista</h2>
-        <div class="panel-actions">
-          <button id="loadUsers" class="button primary">Päivitä lista</button>
-        </div>
-      </div>
-      <div id="userList" class="panel-content">
-        <!-- User list will be displayed here -->
+
+    <div class="card">
+      <h2>Istunnon hallinta</h2>
+      <button id="clearButton">Tyhjennä kirjautumistiedot</button>
+      <div id="clearNotification" class="notification"></div>
+      <div style="margin-top: 20px; text-align: center;">
+        <a href="index.html" class="home-button">Takaisin etusivulle</a>
       </div>
     </div>
-    
-    <!-- Notification container -->
-    <div id="notificationContainer"></div>
-    
   </div>
-  
-  <!-- JS files -->
-  <script src="src\js\auth.js"></script>
+
+  <script type="module" src="/src/js/auth.js"></script>
 </body>
 </html>
