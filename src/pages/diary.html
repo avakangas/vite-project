@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Diary</title>
+  <link rel="stylesheet" href="\src\css\diary.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Hyte Gym</h1>
+      <div class="user-info">
+        <button id="logout-btn">Takaisin etusivulle</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div id="message-container" class="message-container"></div>
+    
+    <section class="diary-section">
+      <div class="section-header">
+        <h2>Uusi merkintä</h2>
+      </div>
+      <div class="form-container">
+        <form id="entry-form">
+          <div class="form-group">
+            <label for="entry-date">Päivämäärä</label>
+            <input type="date" id="entry-date" name="entry-date" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="mood">Olotila</label>
+            <input type="text" id="mood" name="mood" placeholder="Miten voit tänään?" required>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group half">
+              <label for="weight">Paino (kg)</label>
+              <input type="number" id="weight" name="weight" step="0.1" min="20" max="200" placeholder="Painosi kilogrammoina" required>
+            </div>
+            
+            <div class="form-group half">
+              <label for="sleep-hours">Unenmäärä (Tunti)</label>
+              <input type="number" id="sleep-hours" name="sleep-hours" min="0" max="24" placeholder="Unenmäärä tunteina" required>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="notes">Muut muistiinpanot</label>
+            <textarea id="notes" name="notes" placeholder="Kerro lisää päivästäsi"></textarea>
+          </div>
+          
+          <button type="submit" class="btn btn-primary">Tallenna merkintä</button>
+        </form>
+      </div>
+    </section>
+    
+    <section class="diary-section">
+      <div class="section-header">
+        <h2>Aijemmat merkintäsi</h2>
+        <div class="entry-actions">
+          <select id="entries-filter">
+            <option value="all">Kaikki merkinnät</option>
+            <option value="week">Viimeiset 7 päivää</option>
+            <option value="month">Viimeiset 30 päivää</option>
+          </select>
+        </div>
+      </div>
+      
+      <div id="entries-container" class="entries-container">
+        <div class="loading">Ladataan merkintöjä...</div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+    </div>
+    <p>Copyright, meitsi</p>
+  </footer>
+
+  <script type="module" src="\src\js\diary.js"></script>
+  <script type="module">
+   import { fetchEntries, displayEntries } from '/src/js/diary.js';
+  
+  document.addEventListener('DOMContentLoaded', () => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      window.location.href = 'login.html';
+    }
+    
+    const username = localStorage.getItem('username');
+    if (username) {
+      document.getElementById('username-display').textContent = `Welcome, ${username}`;
+    }
+
+    document.getElementById('logout-btn').addEventListener('click', () => {
+      localStorage.removeItem('token');
+      localStorage.removeItem('username');
+      window.location.href = 'login.html';
+    });
+    
+    document.getElementById('entries-filter').addEventListener('change', (event) => {
+      const filterValue = event.target.value;
+      
+      // haetaan tiedot jos niitä ei ole vielä haettu
+      if (window.entriesData) {
+        filterAndDisplayEntries(window.entriesData, filterValue);
+      } else {
+        fetchEntries().then(entries => {
+          window.entriesData = entries; 
+          filterAndDisplayEntries(entries, filterValue);
+        });
+      }
+    });
+    
+    // funktio auttaa filtteröimään
+    function filterAndDisplayEntries(entries, filterValue) {
+      if (filterValue === 'all') {
+        displayEntries(entries);
+      } else if (filterValue === 'week') {
+        const weekAgo = new Date();
+        weekAgo.setDate(weekAgo.getDate() - 7);
+        const filteredEntries = entries.filter(entry => new Date(entry.entry_date) >= weekAgo);
+        displayEntries(filteredEntries);
+      } else if (filterValue === 'month') {
+        const monthAgo = new Date();
+        monthAgo.setDate(monthAgo.getDate() - 30);
+        const filteredEntries = entries.filter(entry => new Date(entry.entry_date) >= monthAgo);
+        displayEntries(filteredEntries);
+      }
+    }
+  });
+  </script>
+</body>
+</html>

@@ -1,151 +1,190 @@
+/* perus ilme */
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  --pink: rgb(216, 133, 147);
-  --p-10: 10px;
+  --font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --primary-color: darkblue;
+  --secondary-color: royalblue;
+  --accent-color: pink;
+  --text-color: #000000;
+  --light-bg: #ffffff;
+  --dark-bg: #1e272e;
+  --border-radius: 5px;
+  --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --spacing-sm: 10px;
+  --spacing-md: 20px;
+  --spacing-lg: 40px;
 }
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
   scroll-behavior: smooth;
+  font-size: 16px;
 }
 
 body {
+  font-family: var(--font-family);
+  line-height: 1.5;
+  font-weight: 400;
+  color: var(--text-color);
   min-width: 320px;
   min-height: 100vh;
-  margin: 16px;
+  padding: var(--spacing-md);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h1 {
-  font-size: 3.2em;
+  font-size: 2.5rem;
   line-height: 1.1;
+  margin-bottom: var(--spacing-md);
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: var(--spacing-md);
 }
 
 h3 {
-  border-bottom: 1px solid rgb(184, 15, 117);
+  font-size: 1.5rem;
+  border-bottom: 1px solid var(--accent-color);
+  padding-bottom: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
 }
 
-#bmi {
-  visibility: hidden;
-}
 a {
   font-weight: 500;
   color: #646cff;
-  text-decoration: inherit;
+  text-decoration: none;
+  transition: color 0.3s;
 }
 
 a:hover {
   color: #535bf2;
 }
 
+button {
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  border: none;
+  border-radius: var(--border-radius);
+  padding: var(--spacing-sm) var(--spacing-md);
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* layout */
 #app {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: var(--spacing-lg);
   text-align: center;
-  color: rgb(0, 0, 0);
 }
 
-/* Navigaatio tyyli */
+/* navigatio */
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: whitesmoke;
-  padding: 10px 20px;
+  padding: var(--spacing-sm) var(--spacing-md);
   border-bottom: 2px solid whitesmoke;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-#login-nav-btn {
-  background-color: #1e272e;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 18px;
-  transition: background-color 0.3s, transform 0.2s;
+  box-shadow: var(--box-shadow);
+  margin-bottom: var(--spacing-lg);
+  border-radius: var(--border-radius);
 }
 
 #logo {
-  font-size: 28px;
+  font-size: 1.75rem;
   font-weight: bold;
-  color: darkblue;
+  color: var(--primary-color);
 }
 
 .nav-links {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 15px;
+  gap: var(--spacing-md);
   flex: 1;
 }
 
-.box {
-  background-color: darkblue;
+#login-nav-btn {
+  background-color: var(--dark-bg);
   color: white;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-size: 18px;
+  font-size: 1rem;
+}
+
+#login-nav-btn:hover {
+  background-color: #60666b;
+}
+
+/* box*/
+.box {
+  background-color: var(--primary-color);
+  color: white;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--border-radius);
+  font-size: 1.125rem;
   text-align: center;
-  transition: background-color 0.3s, transform 0.2s;
+  display: inline-block;
 }
 
 .box:hover {
-  background-color: royalblue;
-  transform: scale(1.05);
-  cursor: pointer;
+  background-color: var(--secondary-color);
 }
 
-/* Hero Section */
+/* teksitit */
 .slogan {
   text-align: center;
-  margin-top: 50px;
-  font-size: 25px;
+  margin: var(--spacing-lg) 0;
+  font-size: 1.5rem;
 }
 
 #logooo {
   color: blue;
-  font-size: 25px;
+  font-size: 1.5rem;
 }
 
-/* Card Styles */
+/* kortitt */
 .card-area {
   display: flex;
-  gap: 10px;
+  gap: var(--spacing-md);
   justify-content: center;
   flex-wrap: wrap;
+  margin: var(--spacing-lg) 0;
 }
 
 .card {
   position: relative;
-  color: black;
-  background-color: lightgrey;
-  max-width: 700px;
+  background-color: #f9f9f9;
   width: 100%;
-  min-height: 500px;
-  padding: 10px;
-  margin: 40px auto;
+  max-width: 700px;
+  height: auto;
+  min-height: 300px;
+  padding: var(--spacing-md);
+  margin: var(--spacing-md) auto;
   text-align: center;
-  box-shadow: 11px 8px 19px 0px rgb(2, 2, 2);
-  border-radius: 30px;
+  box-shadow: var(--box-shadow);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
 }
 
 .card-img {
-  flex: 1;
-  object-fit: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: var(--spacing-md);
 }
 
 .card-img img {
@@ -153,33 +192,33 @@ nav {
 }
 
 .card-diary {
-  flex: 4;
+  flex: 1;
 }
 
-/* Footer */
-footer {
-  height: 50px;
-  background-color: pink;
-  color: black;
-  text-align: center;
-  padding-top: 20px;
+/* BMI laskin */
+.bmilaskin {
+  background-color: #fdfdfd;
+  padding: var(--spacing-lg);
+  border-radius: 10px;
+  max-width: 400px;
+  margin: var(--spacing-lg) auto;
+  text-align: left;
+  box-shadow: var(--box-shadow);
 }
 
 .bmilaskin input {
-  padding: 15px;
-  width: 40%;
+  padding: var(--spacing-md);
+  width: 100%;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: var(--border-radius);
+  margin-bottom: var(--spacing-md);
 }
 
 .bmilaskin button {
-  background-color: #1e272e;
+  background-color: var(--dark-bg);
   color: white;
-  padding: 10px;
   width: 100%;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+  margin-top: var(--spacing-sm);
 }
 
 .bmilaskin button:hover {
@@ -187,41 +226,34 @@ footer {
 }
 
 .bmilaskin table {
-  width: 80%;
-  margin-top: 20px;
+  width: 100%;
+  margin-top: var(--spacing-md);
+  border-collapse: collapse;
 }
 
 .bmilaskin td {
-  padding: 5px;
-}
-
-table td {
-  border: 1px solid #ccc;
-}
-
-table tr {
-  transition: background-color 0.3s ease, border-color 0.3s ease;
+  padding: var(--spacing-sm);
 }
 
 .bmilaskin .tiedot {
   color: blue;
 }
 
-/* Paivakirja Styles */
+/* päiväkirja merkinnät */
 .paivakirja-container {
   display: flex;
   justify-content: center;
-  align-items: center;
-  margin: 20px;
+  align-items: stretch;
+  margin: var(--spacing-md) 0;
 }
 
 .paivakirja-card {
   display: flex;
   background-color: #f9f9f9;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  max-width: 600px;
+  box-shadow: var(--box-shadow);
   width: 100%;
+  max-width: 600px;
   overflow: hidden;
 }
 
@@ -231,17 +263,12 @@ table tr {
   justify-content: center;
   align-items: center;
   background: #ddd;
-  padding: 10px;
-}
-
-.paivakirja-img img {
-  max-width: 100px;
-  height: auto;
+  padding: var(--spacing-md);
 }
 
 .paivakirja-content {
   flex: 2;
-  padding: 20px;
+  padding: var(--spacing-md);
   display: flex;
   flex-direction: column;
 }
@@ -249,57 +276,37 @@ table tr {
 .paivakirja-content textarea {
   width: 100%;
   height: 100px;
-  margin-bottom: 10px;
+  margin-bottom: var(--spacing-md);
+  padding: var(--spacing-sm);
+  border: 1px solid #ccc;
+  border-radius: var(--border-radius);
 }
 
 .paivakirja-content button {
   align-self: flex-start;
-  background-color: #1e272e;
+  background-color: var(--dark-bg);
   color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
 }
 
-.paivakirja-content button:hover {
-  background-color: #60666b;
-}
-
-/* Card Styles - Yhteystiedot Section */
-.valokuva {
-  width: 200px;
-  float: right;
-  padding: 20px;
-}
-
-.kuva.sydan {
-  position: absolute;
-  top: -15px;
-  right: -15px;
-  width: 50px;
-  height: 50px;
-  z-index: 10;
-}
-
+/* tables */
 .styled-table {
   border-collapse: collapse;
-  margin: 25px 0;
-  font-size: 0.9em;
-  font-family: sans-serif;
-  min-width: 400px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  margin: var(--spacing-md) 0;
+  font-size: 0.9rem;
+  width: 100%;
+  max-width: 800px;
+  box-shadow: var(--box-shadow);
 }
 
 .styled-table thead tr {
-  background-color: var(--pink);
-  color: #ffffff;
+  background-color: var(--accent-color);
+  color: white;
   text-align: left;
 }
 
 .styled-table th,
 .styled-table td {
-  padding: 12px 15px;
+  padding: var(--spacing-sm) var(--spacing-md);
 }
 
 .styled-table tbody tr {
@@ -320,349 +327,103 @@ table tr {
 }
 
 .styled-table tbody tr:hover {
-  background-color: #68535358;
-  cursor: pointer;
+  background-color: rgba(216, 133, 147, 0.1);
 }
 
-/* Responsive Design */
-@media screen and (max-width: 800px) {
-  .forms {
-    flex-direction: column;
-  }
-
-  .paivakirja-container {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+/* kuvat */
+.valokuva {
+  max-width: 200px;
+  float: right;
+  padding: var(--spacing-md);
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.kuva.sydan {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  width: 50px;
+  height: 50px;
+  z-index: 10;
 }
 
-/*uusi
-/* Login Form Styles */
-.form-container {
-  background-color: #f7f7f7;
-  padding: 30px;
-  border-radius: 8px;
-  max-width: 400px;
-  margin: 50px auto;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+/* alapalkki */
+footer {
+  background-color: var(--accent-color);
+  color: black;
   text-align: center;
+  padding: var(--spacing-lg) 0;
+  margin-top: var(--spacing-lg);
+  border-radius: var(--border-radius);
 }
 
-.form-container h2 {
-  font-size: 24px;
-  margin-bottom: 20px;
-}
-
-.form-content input {
-  width: 100%;
-  padding: 15px;
-  margin-bottom: 15px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  font-size: 16px;
-}
-
-.form-content input:focus {
-  outline: none;
-  border-color: #1e272e;
-  box-shadow: 0 0 5px rgba(30, 39, 46, 0.2);
-}
-
-.form-content button {
-  background-color: #1e272e;
-  color: white;
-  padding: 15px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  width: 100%;
-  font-size: 18px;
-}
-
-.form-content button:hover {
-  background-color: #60666b;
-}
-
-#login-error-message {
-  color: red;
-  margin-top: 10px;
-  font-size: 14px;
-}
-
-/* Responsiivisuus kirjautumiselle */
-@media screen and (max-width: 800px) {
-  .form-container {
-    width: 90%;
-    margin: 40px auto;
-  }
-}
-/* Piilotetaan rekisteröintilomake aluksi */
-.register-container {
-  display: none;
-}
-
-/* Lisää visuaaliset tyylit tarpeen mukaan */
-.login-container, .register-container {
-  max-width: 400px;
-  margin: 0 auto;
-  padding: 20px;
-  background: #f7f7f7;
-  border-radius: 10px;
-}
-
-form input {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 5px;
-}
-
-form button {
-  width: 100%;
-  padding: 10px;
-  background-color: #1e272e;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-form button:hover {
-  background-color: #60666b;
-}
-
-a {
-  color: #1e272e;
-  text-decoration: none;
-}
-
-a:hover {
-  color: #535bf2;
-}
-/* Base Styles */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.6;
-  color: #333;
-  background-color: #f8f9fa;
-}
-
-.container {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-header {
-  margin-bottom: 30px;
-  text-align: center;
-}
-
-h1 {
-  color: #3b82f6;
-  margin-bottom: 10px;
-}
-
-h2 {
-  color: #4b5563;
-  margin-bottom: 20px;
-  border-bottom: 2px solid #e5e7eb;
-  padding-bottom: 10px;
-}
-
-/* Form Styles */
-.form-group {
-  margin-bottom: 15px;
-}
-
-label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: 600;
-  color: #4b5563;
-}
-
-input, select, textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #d1d5db;
-  border-radius: 4px;
-  font-size: 16px;
-}
-
-textarea {
-  resize: vertical;
-}
-
-/* Button Styles */
-.btn, .btn-secondary {
-  display: inline-block;
-  background-color: #3b82f6;
-  color: white;
-  border: none;
-  padding: 12px 20px;
-  cursor: pointer;
-  font-size: 16px;
-  border-radius: 4px;
-  transition: background-color 0.3s;
-}
-
-.btn:hover {
-  background-color: #2563eb;
-}
-
-.btn-secondary {
-  background-color: #6b7280;
-}
-
-.btn-secondary:hover {
-  background-color: #4b5563;
-}
-
-/* Message Container */
-#message-container {
-  margin: 10px 0;
-}
-
-.message {
-  padding: 10px;
-  border-radius: 4px;
-  margin-bottom: 10px;
-}
-
-.success {
-  background-color: #d1fae5;
-  color: #047857;
-  border: 1px solid #047857;
-}
-
-.error {
-  background-color: #fee2e2;
-  color: #b91c1c;
-  border: 1px solid #b91c1c;
-}
-
-.info {
-  background-color: #e0f2fe;
-  color: #0369a1;
-  border: 1px solid #0369a1;
-}
-
-/* Authentication Container */
-#auth-container {
-  max-width: 500px;
-  margin: 0 auto;
-  background: white;
-  padding: 30px;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* Diary Section */
-.diary-section, .entries-section {
-  margin-top: 30px;
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.user-info {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-  padding: 10px;
-  background-color: #f3f4f6;
-  border-radius: 8px;
-}
-
-#username-display {
-  font-weight: bold;
-  color: #3b82f6;
-}
-
-/* Entry Card Styles */
-.entry-card {
-  margin-bottom: 20px;
-  padding: 15px;
-  border-radius: 8px;
-  background-color: #f9fafb;
-  border-left: 4px solid #3b82f6;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-.entry-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-.entry-header h3 {
-  color: #4b5563;
-  font-size: 18px;
-}
-
-.mood-badge {
-  display: inline-block;
-  padding: 5px 10px;
-  border-radius: 20px;
-  font-size: 14px;
-  font-weight: 600;
-  background-color: #e0f2fe;
-  color: #0369a1;
-}
-
-.entry-stats {
-  display: flex;
-  gap: 15px;
-  margin-bottom: 10px;
-  color: #6b7280;
-  font-size: 14px;
-}
-
-.entry-notes p {
-  padding: 10px;
-  background-color: white;
-  border-radius: 4px;
-  border: 1px solid #e5e7eb;
-}
-
-/* Responsive Styles */
-@media (min-width: 768px) {
-  .diary-section {
-      display: flex;
-      flex-direction: column;
+/* media vaatimukset */
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 14px;
   }
   
-  #diary-form {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-gap: 15px;
+  nav {
+    flex-direction: column;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
   }
   
-  #diary-form .form-group:nth-child(5),
-  #diary-form button {
-      grid-column: 1 / 3;
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-sm);
+  }
+  
+  .card {
+    padding: var(--spacing-sm);
+  }
+  
+  .paivakirja-card {
+    flex-direction: column;
+  }
+  
+  .paivakirja-img {
+    padding: var(--spacing-sm);
+  }
+  
+  .bmilaskin {
+    padding: var(--spacing-md);
+  }
+  
+  .bmilaskin input {
+    width: 100%;
+  }
+  
+  .styled-table {
+    font-size: 0.8rem;
+  }
+  
+  .styled-table th,
+  .styled-table td {
+    padding: var(--spacing-sm);
+  }
+  
+  .valokuva {
+    float: none;
+    display: block;
+    margin: 0 auto var(--spacing-md) auto;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #app {
+    padding: var(--spacing-sm);
+  }
+  
+  .card-area {
+    gap: var(--spacing-sm);
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  .slogan {
+    font-size: 1.25rem;
   }
 }

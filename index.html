@@ -5,22 +5,19 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite App - HyteGym</title>
-    <!--<link rel="stylesheet" href="src/css/style.css"/>-->
+    <link rel="stylesheet" href="src/css/style.css"/>
   </head>
   <body>
-    <!-- Navigatio -->
     <nav class="clearfix">
       <div id="logo">HyteGym</div>
       <div class="nav-links">
         <a class="box" href="#1">Koti</a>
-        <a class="box" href="#bmi">BMI laskin</a>
+        <a class="box" href="#2">BMI laskin</a>
         <a class="box" href="#3">Yhteystiedot</a>
       </div>
-      <!--kirjautuminen sisään-->
-      <button id="login-nav-btn" class="box">Kirjaudu sisään</button>
+     <button id="login-nav-btn" class="box">Kirjaudu sisään</button>
     </nav>
 
-    <!-- Hero Section -->
     <main class="hero">
       <div class="slogan">
         Miten
@@ -29,7 +26,6 @@
       </div>
     </main>
 
-    <!-- Contact Section -->
     <div class="card">
       <h3>Tämä on meidän tarinamme</h3>
       <p>
@@ -46,20 +42,15 @@
       <img src="https://cdn.pixabay.com/photo/2013/07/13/11/49/heart-158739_640.png" alt="Sydänkuva" class="kuva sydan"/>
     </div>
 
-    <div class="bmilaskin">
+    <div id="2" class="bmilaskin">
       <img src="https://rtaesthetics.co.uk/wp-content/uploads/2021/03/bmi-adult-fb-600x315-1.jpeg" alt="bmikuva" class="bmikuva"/>
       <h2>Painoindeksilaskuri / BMI-laskuri</h2>
       <p class="k">Painoindeksilaskurilla voit laskea pituuden ja painon perusteella painoindeksin (BMI, Body Mass Index).</p>
       <p><label for="paino">Anna painosi:</label></p>
       <input type="number" id="paino" name="paino" placeholder="kg" required/>
-
       <p><label for="pituus">Anna pituutesi:</label></p>
       <input type="number" id="pituus" name="pituus" placeholder="cm" required/>
-
-      <p>
-        <button id="bmi-button" onclick="calculateBMI()">Laske indeksi</button>
-      </p>
-
+      <p><button id="bmi-button" onclick="calculateBMI()">Laske indeksi</button></p>
       <div id="tulos">Mittaustuloksesi:</div>
 
       <table>
@@ -78,14 +69,13 @@
       </table>
       <p id="analyysi">Analyyysi: Täähän saat tietoa painoindeksistäsi</p>
     </div>
-    <!-- Kirjautumismodaali, joka ladataan dynaamisesti -->
+
     <div id="login-modal" class="modal">
       <div class="modal-content">
         <span id="close-modal" class="close">&times;</span>
-        <!-- Tässä tulee näkyviin kirjautumislomake -->
       </div>
     </div>
-    <!-- päiväkirja -->
+
     <div id="paivakirja" class="paivakirja">
       <div class="paivakirja-container">
         <div class="paivakirja-card">
@@ -101,77 +91,7 @@
         </div>
       </div>
     </div>
-    <div class="container">
-      <header>
-          <h1>My Personal Diary</h1>
-          <div id="message-container"></div>
-      </header>
 
-      <!-- Authentication Container -->
-      <div id="auth-container">
-          <h2>Login to Your Diary</h2>
-          <form id="login-form">
-              <div class="form-group">
-                  <label for="username">Username</label>
-                  <input type="text" id="username" name="username" required>
-              </div>
-              <div class="form-group">
-                  <label for="password">Password</label>
-                  <input type="password" id="password" name="password" required>
-              </div>
-              <button type="submit" class="btn">Login</button>
-          </form>
-      </div>
-
-      <!-- Diary Container (hidden until login) -->
-      <div id="diary-container" style="display: none;">
-          <div class="user-info">
-              <p>Welcome, <span id="username-display"></span></p>
-              <button id="logout-btn" class="btn-secondary">Logout</button>
-          </div>
-
-          <div class="diary-section">
-              <h2>Add New Entry</h2>
-              <form id="diary-form">
-                  <div class="form-group">
-                      <label for="entry_date">Date</label>
-                      <input type="date" id="entry_date" name="entry_date" required>
-                  </div>
-                  <div class="form-group">
-                      <label for="mood">Mood</label>
-                      <select id="mood" name="mood" required>
-                          <option value="Great">Great</option>
-                          <option value="Good">Good</option>
-                          <option value="Okay">Okay</option>
-                          <option value="Bad">Bad</option>
-                          <option value="Terrible">Terrible</option>
-                      </select>
-                  </div>
-                  <div class="form-group">
-                      <label for="weight">Weight (kg)</label>
-                      <input type="number" id="weight" name="weight" step="0.1" required>
-                  </div>
-                  <div class="form-group">
-                      <label for="sleep_hours">Sleep (hours)</label>
-                      <input type="number" id="sleep_hours" name="sleep_hours" min="0" max="24" required>
-                  </div>
-                  <div class="form-group">
-                      <label for="notes">Notes</label>
-                      <textarea id="notes" name="notes" rows="4"></textarea>
-                  </div>
-                  <button type="submit" class="btn">Save Entry</button>
-              </form>
-          </div>
-
-          <div class="entries-section">
-              <h2>My Diary Entries</h2>
-              <div id="entries-container">
-                  <!-- Entries will be loaded here dynamically -->
-              </div>
-          </div>
-      </div>
-  </div>
-  
     <footer>
       Copyright, meitsi
     </footer>
@@ -180,14 +100,12 @@
       window.onload = function () {
         const bmiButton = document.getElementById("bmi-button");
         bmiButton.addEventListener("click", calculateBMI);
-        
-        // Lisää kirjautumisnapin toiminnallisuus
-        const loginButton = document.getElementById("login-nav-btn");
+      };
+
+      const loginButton = document.getElementById("login-nav-btn");
         loginButton.addEventListener("click", function() {
-          // Ohjaa käyttäjä authtest.html-sivulle
           window.location.href = "/src/pages/authtest.html";
         });
-      };
 
       function calculateBMI() {
         const paino = Number(document.getElementById("paino").value);
@@ -237,6 +155,5 @@
         }
       });
     </script>
-    <script type="module" src="/src/js/main.js"></script>
   </body>
 </html>

@@ -1,4 +1,4 @@
-/* Base styles */
+
 :root {
   --primary-color: #ff7eb9;
   --secondary-color: #ff65a3;
@@ -34,7 +34,7 @@ body {
   align-items: center;
 }
 
-/* Card styles */
+
 .card {
   background-color: white;
   border-radius: var(--border-radius);
@@ -60,7 +60,6 @@ p {
   text-align: center;
 }
 
-/* Form styles */
 .form-group {
   margin-bottom: 20px;
 }
@@ -186,7 +185,7 @@ pre {
   color: #721c24;
   border: 1px solid #f5c6cb;
 }
-/* Navigation styles */
+
 .navigation {
   margin: 20px 0;
   text-align: center;
@@ -220,13 +219,12 @@ pre {
   box-shadow: 0 2px 5px rgba(255, 126, 185, 0.2);
 }
 
-/* Bottom nav button with some space */
+
 .bottom-nav {
   margin-top: 25px;
   text-align: center;
 }
 
-/* For mobile screens */
 @media (max-width: 768px) {
   .home-button {
     width: 100%;
