@@ -1,0 +1,17 @@
+{"level":30,"time":"2025-03-28T12:07:11.684Z","pid":23780,"hostname":"DESKTOP-J93JCF5","msg":"Listening on 61989"}
+(node:23780) DeprecationWarning: Calling start() is no longer necessary. It can be safely omitted.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+{"level":30,"time":"2025-03-28T12:07:11.843Z","pid":23780,"hostname":"DESKTOP-J93JCF5","msg":"Start of node method newBrowser"}
+{"level":30,"time":"2025-03-28T12:07:12.221Z","pid":23780,"hostname":"DESKTOP-J93JCF5","msg":"Adding browser to stack: chromium, version: 134.0.6998.35"}
+{"level":30,"time":"2025-03-28T12:07:12.222Z","pid":23780,"hostname":"DESKTOP-J93JCF5","msg":"End of node method newBrowser"}
+{"level":30,"time":"2025-03-28T12:07:12.222Z","pid":23780,"hostname":"DESKTOP-J93JCF5","msg":"Adding 0 contexts to browser"}
+{"level":30,"time":"2025-03-28T12:07:12.246Z","pid":23780,"hostname":"DESKTOP-J93JCF5","msg":"Start of node method newPage"}
+{"level":30,"time":"2025-03-28T12:07:12.247Z","pid":23780,"hostname":"DESKTOP-J93JCF5","msg":"currentBrowser: [object Object]"}
+{"level":30,"time":"2025-03-28T12:07:12.311Z","pid":23780,"hostname":"DESKTOP-J93JCF5","msg":"Changed active context"}
+{"level":30,"time":"2025-03-28T12:07:12.756Z","pid":23780,"hostname":"DESKTOP-J93JCF5","msg":"Video path: undefined"}
+{"level":30,"time":"2025-03-28T12:07:12.756Z","pid":23780,"hostname":"DESKTOP-J93JCF5","msg":"Changed active page"}
+{"level":30,"time":"2025-03-28T12:07:12.936Z","pid":23780,"hostname":"DESKTOP-J93JCF5","msg":"End of node method newPage"}
+{"level":30,"time":"2025-03-28T12:07:13.982Z","pid":23780,"hostname":"DESKTOP-J93JCF5","msg":"Start of node method takeScreenshot"}
+{"level":30,"time":"2025-03-28T12:07:13.983Z","pid":23780,"hostname":"DESKTOP-J93JCF5","Take screenshot with options: ":{"path":"C:\\Users\\35840\\harjoitus vite\\vite-project\\browser\\screenshot\\fail-screenshot-1.png","fileType":"png","fullPage":false,"timeout":10000,"omitBackground":false}}
+{"level":30,"time":"2025-03-28T12:07:14.177Z","pid":23780,"hostname":"DESKTOP-J93JCF5","msg":"End of node method takeScreenshot"}
+{"level":30,"time":"2025-03-28T12:07:19.213Z","pid":23780,"hostname":"DESKTOP-J93JCF5","msg":"Removed page=db566dbf-fc40-48be-bfc7-c1f420e266c7 from context=7b09fc15-c122-4422-8af1-7f4df21fe553 page stack"}

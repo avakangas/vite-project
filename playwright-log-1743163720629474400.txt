@@ -1,0 +1,40 @@
+{"level":30,"time":"2025-03-28T12:08:41.653Z","pid":2828,"hostname":"DESKTOP-J93JCF5","msg":"Listening on 62300"}
+(node:2828) DeprecationWarning: Calling start() is no longer necessary. It can be safely omitted.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+{"level":30,"time":"2025-03-28T12:08:41.852Z","pid":2828,"hostname":"DESKTOP-J93JCF5","msg":"Start of node method newBrowser"}
+{"level":30,"time":"2025-03-28T12:08:42.256Z","pid":2828,"hostname":"DESKTOP-J93JCF5","msg":"Adding browser to stack: chromium, version: 134.0.6998.35"}
+{"level":30,"time":"2025-03-28T12:08:42.257Z","pid":2828,"hostname":"DESKTOP-J93JCF5","msg":"Adding 0 contexts to browser"}
+{"level":30,"time":"2025-03-28T12:08:42.257Z","pid":2828,"hostname":"DESKTOP-J93JCF5","msg":"End of node method newBrowser"}
+{"level":30,"time":"2025-03-28T12:08:42.272Z","pid":2828,"hostname":"DESKTOP-J93JCF5","msg":"Start of node method newPage"}
+{"level":30,"time":"2025-03-28T12:08:42.273Z","pid":2828,"hostname":"DESKTOP-J93JCF5","msg":"currentBrowser: [object Object]"}
+{"level":30,"time":"2025-03-28T12:08:42.313Z","pid":2828,"hostname":"DESKTOP-J93JCF5","msg":"Changed active context"}
+{"level":30,"time":"2025-03-28T12:08:42.758Z","pid":2828,"hostname":"DESKTOP-J93JCF5","msg":"Video path: undefined"}
+{"level":30,"time":"2025-03-28T12:08:42.758Z","pid":2828,"hostname":"DESKTOP-J93JCF5","msg":"Changed active page"}
+{"level":30,"time":"2025-03-28T12:08:42.918Z","pid":2828,"hostname":"DESKTOP-J93JCF5","msg":"End of node method newPage"}
+{"level":30,"time":"2025-03-28T12:08:42.957Z","pid":2828,"hostname":"DESKTOP-J93JCF5","msg":"Start of node method typeText"}
+{"level":30,"time":"2025-03-28T12:08:42.957Z","pid":2828,"hostname":"DESKTOP-J93JCF5","msg":"Strict mode is enabled, find Locator with [name=\"my-text\"] in page."}
+{"level":30,"time":"2025-03-28T12:08:47.672Z","pid":2828,"hostname":"DESKTOP-J93JCF5","msg":"Removed page=5d955c90-fc1b-4d61-a177-2f92e7625b41 from context=ee45b9bb-5e42-412e-99f8-7fdaf416bbb3 page stack"}
+{"level":30,"time":"2025-03-28T12:08:47.673Z","pid":2828,"hostname":"DESKTOP-J93JCF5","msg":"Error of node method  typeText"}
+================= Original suppressed error =================
+locator.fill: Target page, context or browser has been closed
+Call log:
+[2m  - waiting for locator('[name="my-text"]')[22m
+
+    at typeText (C:\Users\35840\harjoitus vite\vite-project\.venv\Lib\site-packages\Browser\wrapper\index.js:11836:19)
+    at async PlaywrightServer.typeText (C:\Users\35840\harjoitus vite\vite-project\.venv\Lib\site-packages\Browser\wrapper\index.js:13132:28)
+=============================================================
+{"level":30,"time":"2025-03-28T12:08:47.781Z","pid":2828,"hostname":"DESKTOP-J93JCF5","msg":"Start of node method takeScreenshot"}
+================= Original suppressed error =================
+Error: Tried to take screenshot, but no page was open.
+    at exists (C:\Users\35840\harjoitus vite\vite-project\.venv\Lib\site-packages\Browser\wrapper\index.js:10725:11)
+    at takeScreenshot (C:\Users\35840\harjoitus vite\vite-project\.venv\Lib\site-packages\Browser\wrapper\index.js:10769:3)
+    at PlaywrightServer.takeScreenshot (C:\Users\35840\harjoitus vite\vite-project\.venv\Lib\site-packages\Browser\wrapper\index.js:13132:34)
+    at Object.onReceiveHalfClose (C:\Users\35840\harjoitus vite\vite-project\.venv\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server.js:1461:25)
+    at BaseServerInterceptingCall.maybePushNextMessage (C:\Users\35840\harjoitus vite\vite-project\.venv\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:575:31)
+    at BaseServerInterceptingCall.handleEndEvent (C:\Users\35840\harjoitus vite\vite-project\.venv\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:615:14)
+    at ServerHttp2Stream.<anonymous> (C:\Users\35840\harjoitus vite\vite-project\.venv\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:382:18)
+    at ServerHttp2Stream.emit (node:events:536:35)
+    at endReadableNT (node:internal/streams/readable:1698:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+=============================================================
+{"level":30,"time":"2025-03-28T12:08:47.782Z","pid":2828,"hostname":"DESKTOP-J93JCF5","msg":"Error of node method  takeScreenshot"}
