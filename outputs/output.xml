@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.13.1 on win32)" generated="2025-03-29T21:47:03.051199" rpa="false" schemaversion="5">
+<suite id="s1" name="Test1" source="C:\Users\35840\harjoitus vite\vite-project\tests\test1.robot">
+<test id="s1-t1" name="Testin Ajo" line="2">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-29T21:47:03.115352" level="INFO">Tämä on ensimmäinen testini!</msg>
+<arg>Tämä on ensimmäinen testini!</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-29T21:47:03.113659" elapsed="0.001796"/>
+</kw>
+<status status="PASS" start="2025-03-29T21:47:03.112790" elapsed="0.003431"/>
+</test>
+<status status="PASS" start="2025-03-29T21:47:03.053642" elapsed="0.064263"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Test1" id="s1" pass="1" fail="0" skip="0">Test1</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
