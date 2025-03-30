@@ -3,11 +3,7 @@ Sovelluksessa pystyy kirjautumaan ulso.
 Sovelluksessa pystyy luomaan uuden päiväkirja merkinnän.
 Sovelluksessa pystyy katsomaan aikaisemmin luotuja merkintöjä.
 
-![Kuva rekisteröitymiseen](/public/img/Sovelluskuva.jpg)
-![Kirjautumisikkuna](/public/img/Kirjatutumisikkuna.jpg)
-![Autetikaatio pyykkön teko ja istunnonhallinta (kirjaudu ulos tai päiväkirja merkintä)](/public/img/käyttäjätiedotjahallinta.jpg)
-![Uuden merkinnänteko](/public/img/uusimerkintä.jpg)
-![Vanhojen merkintöjen tarkastelu](/public/img/aijemmatmerkinnät.jpg)
+Julkaisua sekä testaamista varten löydät vite-demoprojektin täältä. Mikäli olet epävarma omasta sovelluksesi toiminnasta, asenna tämä demoprojekti testausta varten. Katso myös miten tiedostoissa on viitattu erilaisiin tiedostojen relatiivisiin polkuihin.
 
 Frontend: http://localhost:5173/src/pages/login.html
 Backend: http://127.0.0.1:3000/
