@@ -32,3 +32,5 @@ Testattu: robot browser_demo.robot
 - PS C:\Users\35840\harjoitus vite\vite-project> 
 
 ## TEHTÄVÄ 4. tehty 28.3
+Repositorio tehty: https://github.com/avakangas/avakangas.github.io
+- Pushauksen kanssa ollut ongelmia... tekoa jatkettu 28.3
