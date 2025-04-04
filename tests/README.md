@@ -7,17 +7,17 @@ Asennettu:
 - Browser: 19.4.0
 - requests: 2.32.3
 - CryptoLibrary: 0.4.2
-Testattu: [Testi tehtävä 1](.tehtävä1/asennustesti.py)
+Testattu: [Testi tehtävä 1](.tehtävä1)
 
 ## TEHTÄVÄ 2. tehty 24.3
-Testattu: [Testi tehtävä 2](tests.browser_demo2.robot)
+Testattu: [Testi tehtävä 2](.tehtävä2)
 - Browser Demo
 - Test Web Form                                                         | PASS |
 - Browser Demo                                                          | PASS |
 - 1 test, 1 passed, 0 failed
 
 ## TEHTÄVÄ 3. tehty 25.3
-- Testattu:[Testi tehtävä 3](tests.browser_demo3.robot)
+- Testattu:[Testi tehtävä 3](.tehtävä3)
 - PS C:\Users\35840\harjoitus vite\vite-project\tests> robot browser_demo3.robot
 - ==============================================================================
 - Browser Demo :: Esimerkki ympäristömuuttujien käytöstä
@@ -33,7 +33,7 @@ Testattu: [Testi tehtävä 2](tests.browser_demo2.robot)
 - PS C:\Users\35840\harjoitus vite\vite-project> 
 
 ## TEHTÄVÄ 4. tehty 28.3
-Testattu:[Testi tehtävä 4](tests.browser_demo4.robot) 
+Testattu:[Testi tehtävä 4](.tehtävä4) 
 - PS C:\Users\35840\harjoitus vite\vite-project\tests> robot browser_demo4.robot
 ================================================================================
 - Browser Demo4
@@ -45,7 +45,7 @@ Testattu:[Testi tehtävä 4](tests.browser_demo4.robot)
 - ==============================================================================
 
 ## TEHTÄVÄ 5. tehty 1.4
-Testattu:[Testi tehtävä 5](tests.browser_demo5.robot) 
+Testattu:[Testi tehtävä 5](.tehtävä5) 
 - PS C:\Users\35840\harjoitus vite\vite-project> robot tests/browser_demo5.robot
 - >>
 - ==============================================================================  
