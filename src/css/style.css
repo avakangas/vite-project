@@ -25,6 +25,10 @@ html {
   font-size: 16px;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: var(--font-family);
   line-height: 1.5;
@@ -55,6 +59,9 @@ h3 {
   margin-bottom: var(--spacing-md);
 }
 
+#bmi {
+  visibility: hidden;
+}
 a {
   font-weight: 500;
   color: #646cff;
@@ -91,7 +98,11 @@ img {
   text-align: center;
 }
 
+<<<<<<< HEAD
 /* navigatio */
+=======
+/* Navigaatio tyyli */
+>>>>>>> ff370e2 (done)
 nav {
   display: flex;
   justify-content: space-between;
@@ -99,9 +110,27 @@ nav {
   background-color: whitesmoke;
   padding: var(--spacing-sm) var(--spacing-md);
   border-bottom: 2px solid whitesmoke;
+<<<<<<< HEAD
   box-shadow: var(--box-shadow);
   margin-bottom: var(--spacing-lg);
   border-radius: var(--border-radius);
+=======
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+#login-nav-btn {
+  background-color: #1e272e;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s, transform 0.2s;
+>>>>>>> ff370e2 (done)
 }
 
 #logo {
@@ -168,11 +197,17 @@ nav {
   position: relative;
   background-color: #f9f9f9;
   width: 100%;
+<<<<<<< HEAD
   max-width: 700px;
   height: auto;
   min-height: 300px;
   padding: var(--spacing-md);
   margin: var(--spacing-md) auto;
+=======
+  min-height: 500px;
+  padding: 10px;
+  margin: 40px auto;
+>>>>>>> ff370e2 (done)
   text-align: center;
   box-shadow: var(--box-shadow);
   border-radius: 15px;
@@ -192,6 +227,7 @@ nav {
 }
 
 .card-diary {
+<<<<<<< HEAD
   flex: 1;
 }
 
@@ -204,6 +240,18 @@ nav {
   margin: var(--spacing-lg) auto;
   text-align: left;
   box-shadow: var(--box-shadow);
+=======
+  flex: 4;
+}
+
+/* Footer */
+footer {
+  height: 50px;
+  background-color: pink;
+  color: black;
+  text-align: center;
+  padding-top: 20px;
+>>>>>>> ff370e2 (done)
 }
 
 .bmilaskin input {
@@ -422,8 +470,116 @@ footer {
   h1 {
     font-size: 2rem;
   }
+<<<<<<< HEAD
   
   .slogan {
     font-size: 1.25rem;
   }
 }
+=======
+}
+
+/*uusi
+/* Login Form Styles */
+.form-container {
+  background-color: #f7f7f7;
+  padding: 30px;
+  border-radius: 8px;
+  max-width: 400px;
+  margin: 50px auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.form-container h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.form-content input {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.form-content input:focus {
+  outline: none;
+  border-color: #1e272e;
+  box-shadow: 0 0 5px rgba(30, 39, 46, 0.2);
+}
+
+.form-content button {
+  background-color: #1e272e;
+  color: white;
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.form-content button:hover {
+  background-color: #60666b;
+}
+
+#login-error-message {
+  color: red;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+/* Responsiivisuus kirjautumiselle */
+@media screen and (max-width: 800px) {
+  .form-container {
+    width: 90%;
+    margin: 40px auto;
+  }
+}
+/* Piilotetaan rekisteröintilomake aluksi */
+.register-container {
+  display: none;
+}
+
+/* Lisää visuaaliset tyylit tarpeen mukaan */
+.login-container, .register-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #f7f7f7;
+  border-radius: 10px;
+}
+
+form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #1e272e;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #60666b;
+}
+
+a {
+  color: #1e272e;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #535bf2;
+}
+>>>>>>> ff370e2 (done)
