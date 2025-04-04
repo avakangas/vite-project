@@ -7,7 +7,7 @@ Asennettu:
 - Browser: 19.4.0
 - requests: 2.32.3
 - CryptoLibrary: 0.4.2
-Testattu: [Testi tehtävä 1](tests/tehtävä1/asennustesti.py)
+Testattu: [Testi tehtävä 1](.tehtävä1/asennustesti.py)
 
 ## TEHTÄVÄ 2. tehty 24.3
 Testattu: [Testi tehtävä 2](tests.browser_demo2.robot)
