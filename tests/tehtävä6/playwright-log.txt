@@ -1,0 +1,51 @@
+{"level":30,"time":"2025-04-06T06:32:11.238Z","pid":22544,"hostname":"DESKTOP-J93JCF5","msg":"Listening on 50263"}
+(node:22544) DeprecationWarning: Calling start() is no longer necessary. It can be safely omitted.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+{"level":30,"time":"2025-04-06T06:32:11.602Z","pid":22544,"hostname":"DESKTOP-J93JCF5","msg":"Start of node method newBrowser"}
+{"level":30,"time":"2025-04-06T06:32:14.736Z","pid":22544,"hostname":"DESKTOP-J93JCF5","msg":"Adding browser to stack: chromium, version: 134.0.6998.35"}
+{"level":30,"time":"2025-04-06T06:32:14.738Z","pid":22544,"hostname":"DESKTOP-J93JCF5","msg":"End of node method newBrowser"}
+{"level":30,"time":"2025-04-06T06:32:14.737Z","pid":22544,"hostname":"DESKTOP-J93JCF5","msg":"Adding 0 contexts to browser"}
+{"level":30,"time":"2025-04-06T06:32:14.757Z","pid":22544,"hostname":"DESKTOP-J93JCF5","msg":"Start of node method newPage"}
+{"level":30,"time":"2025-04-06T06:32:14.758Z","pid":22544,"hostname":"DESKTOP-J93JCF5","msg":"currentBrowser: [object Object]"}
+{"level":30,"time":"2025-04-06T06:32:14.802Z","pid":22544,"hostname":"DESKTOP-J93JCF5","msg":"Changed active context"}
+{"level":30,"time":"2025-04-06T06:32:15.158Z","pid":22544,"hostname":"DESKTOP-J93JCF5","msg":"Video path: undefined"}
+{"level":30,"time":"2025-04-06T06:32:15.159Z","pid":22544,"hostname":"DESKTOP-J93JCF5","msg":"Changed active page"}
+================= Original suppressed error =================
+{"level":30,"time":"2025-04-06T06:32:18.043Z","pid":22544,"hostname":"DESKTOP-J93JCF5","msg":"Error of node method  newPage"}
+page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/src/pages/authtest.html
+Call log:
+[2m  - navigating to "http://localhost:5173/src/pages/authtest.html", waiting until "load"[22m
+
+    at newPage (C:\Users\35840\harjoitus vite\vite-project\.venv\Lib\site-packages\Browser\wrapper\index.js:12567:18)
+    at async PlaywrightServer.newPage (C:\Users\35840\harjoitus vite\vite-project\.venv\Lib\site-packages\Browser\wrapper\index.js:13132:28) {
+  name: 'Error'
+}
+=============================================================
+{"level":30,"time":"2025-04-06T06:32:18.173Z","pid":22544,"hostname":"DESKTOP-J93JCF5","msg":"Start of node method takeScreenshot"}
+================= Original suppressed error =================
+Error: Tried to take screenshot, but no page was open.
+    at exists (C:\Users\35840\harjoitus vite\vite-project\.venv\Lib\site-packages\Browser\wrapper\index.js:10725:11)
+    at takeScreenshot (C:\Users\35840\harjoitus vite\vite-project\.venv\Lib\site-packages\Browser\wrapper\index.js:10769:3)
+    at PlaywrightServer.takeScreenshot (C:\Users\35840\harjoitus vite\vite-project\.venv\Lib\site-packages\Browser\wrapper\index.js:13132:34)
+    at Object.onReceiveHalfClose (C:\Users\35840\harjoitus vite\vite-project\.venv\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server.js:1461:25)
+    at BaseServerInterceptingCall.maybePushNextMessage (C:\Users\35840\harjoitus vite\vite-project\.venv\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:575:31)
+    at BaseServerInterceptingCall.handleEndEvent (C:\Users\35840\harjoitus vite\vite-project\.venv\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:615:14)
+    at ServerHttp2Stream.<anonymous> (C:\Users\35840\harjoitus vite\vite-project\.venv\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:382:18)
+    at ServerHttp2Stream.emit (node:events:536:35)
+    at endReadableNT (node:internal/streams/readable:1698:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+=============================================================
+{"level":30,"time":"2025-04-06T06:32:18.174Z","pid":22544,"hostname":"DESKTOP-J93JCF5","msg":"Error of node method  takeScreenshot"}
+{"level":30,"time":"2025-04-06T06:32:18.388Z","pid":22544,"hostname":"DESKTOP-J93JCF5","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-04-06T06:32:18.389Z","pid":22544,"hostname":"DESKTOP-J93JCF5","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2025-04-06T06:32:18.394Z","pid":22544,"hostname":"DESKTOP-J93JCF5","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-04-06T06:32:18.394Z","pid":22544,"hostname":"DESKTOP-J93JCF5","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2025-04-06T06:32:18.397Z","pid":22544,"hostname":"DESKTOP-J93JCF5","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-04-06T06:32:18.398Z","pid":22544,"hostname":"DESKTOP-J93JCF5","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2025-04-06T06:32:18.402Z","pid":22544,"hostname":"DESKTOP-J93JCF5","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-04-06T06:32:18.402Z","pid":22544,"hostname":"DESKTOP-J93JCF5","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2025-04-06T06:32:18.404Z","pid":22544,"hostname":"DESKTOP-J93JCF5","msg":"Changed active context"}
+{"level":30,"time":"2025-04-06T06:32:18.405Z","pid":22544,"hostname":"DESKTOP-J93JCF5","msg":"Start of node method closeContext"}
+{"level":30,"time":"2025-04-06T06:32:18.419Z","pid":22544,"hostname":"DESKTOP-J93JCF5","msg":"End of node method closeContext"}
+{"level":30,"time":"2025-04-06T06:32:20.820Z","pid":22544,"hostname":"DESKTOP-J93JCF5","msg":"Start of node method closeAllBrowsers"}
+{"level":30,"time":"2025-04-06T06:32:21.124Z","pid":22544,"hostname":"DESKTOP-J93JCF5","msg":"End of node method closeAllBrowsers"}

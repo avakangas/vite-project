@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.13.1 on win32)" generated="2025-04-06T09:32:08.539547" rpa="false" schemaversion="5">
+<suite id="s1" name="Browser Demo6" source="C:\Users\35840\harjoitus vite\vite-project\tests\tehtävä6\browser_demo6.robot">
+<test id="s1-t1" name="Test Web Form" line="10">
+<msg time="2025-04-06T09:32:09.809782" level="INFO">Decrypting text and return value.</msg>
+<kw name="New Browser" owner="Browser">
+<msg time="2025-04-06T09:32:09.828494" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "C:\\Users\\35840\\harjoitus vite\\vite-project\\tests\\teht\u00e4v\u00e46\\browser\\traces\\temp\\a1203a1f-4ced-4af6-8a5b-4054ae166d43"}</msg>
+<msg time="2025-04-06T09:32:09.927032" level="INFO">Starting Browser process C:\Users\35840\harjoitus vite\vite-project\.venv\Lib\site-packages\Browser\wrapper\index.js using port 50263</msg>
+<msg time="2025-04-06T09:32:09.927429" level="INFO">Node startup parameters: ['node', 'C:\\Users\\35840\\harjoitus vite\\vite-project\\.venv\\Lib\\site-packages\\Browser\\wrapper\\index.js', '50263']</msg>
+<msg time="2025-04-06T09:32:14.740135" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"C:\\Users\\35840\\harjoitus vite\\vite-project\\tests\\tehtävä6\\browser\\traces\\temp\\a1203a1f-4ced-4af6-8a5b-4054ae166d43"}</msg>
+<arg>chromium</arg>
+<arg>headless=No</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2025-04-06T09:32:09.823092" elapsed="4.917367"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2025-04-06T09:32:18.203114" level="INFO">Keyword 'Take Screenshot  fail-screenshot-{index}' could not be run on failure:
+Error: Tried to take screenshot, but no page was open.</msg>
+<msg time="2025-04-06T09:32:18.203386" level="INFO">See also file:///C:/Users/35840/harjoitus%20vite/vite-project/tests/teht%C3%A4v%C3%A46/playwright-log.txt for additional details.</msg>
+<msg time="2025-04-06T09:32:18.204172" level="FAIL">Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/src/pages/authtest.html
+Call log:
+  - navigating to "http://localhost:5173/src/pages/authtest.html", waiting until "load"
+</msg>
+<arg>http://localhost:5173/src/pages/authtest.html</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="FAIL" start="2025-04-06T09:32:14.753132" elapsed="3.619201">Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/src/pages/authtest.html
+Call log:
+  - navigating to "http://localhost:5173/src/pages/authtest.html", waiting until "load"
+</status>
+</kw>
+<kw name="Set Viewport Size" owner="Browser">
+<arg>1280</arg>
+<arg>800</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Sets current Pages viewport size to specified dimensions.</doc>
+<status status="NOT RUN" start="2025-04-06T09:32:18.372911" elapsed="0.000217"/>
+</kw>
+<kw name="Get Title" owner="Browser">
+<arg>==</arg>
+<arg>Diary App</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the title of the current page.</doc>
+<status status="NOT RUN" start="2025-04-06T09:32:18.373377" elapsed="0.000213"/>
+</kw>
+<kw name="Type Text" owner="Browser">
+<arg>[id="username"]</arg>
+<arg>${Username}</arg>
+<arg>delay=0.1 s</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="NOT RUN" start="2025-04-06T09:32:18.373823" elapsed="0.000125"/>
+</kw>
+<kw name="Type Secret" owner="Browser">
+<arg>[id="password"]</arg>
+<arg>${Password}</arg>
+<arg>delay=0.1 s</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given secret from ``variable_name`` into the text field
+found by ``selector``.</doc>
+<status status="NOT RUN" start="2025-04-06T09:32:18.374169" elapsed="0.000131"/>
+</kw>
+<kw name="Click" owner="Browser">
+<arg>xpath=//button[text()='Log In']</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2025-04-06T09:32:18.374671" elapsed="0.000097"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<arg>css=[data-testid="dashboard"]</arg>
+<arg>visible</arg>
+<arg>timeout=5s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="NOT RUN" start="2025-04-06T09:32:18.374935" elapsed="0.000090"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<arg>Take Screenshot</arg>
+<arg>login_check.png</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="NOT RUN" start="2025-04-06T09:32:18.375215" elapsed="0.000091"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-04-06T09:32:18.375547" elapsed="0.000090"/>
+</kw>
+<msg time="2025-04-06T09:32:18.379694" level="INFO">Set timeout to: 10000</msg>
+<doc>Testaa kirjautumislomake salatuilla tunnuksilla</doc>
+<status status="FAIL" start="2025-04-06T09:32:09.807171" elapsed="8.568739">Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/src/pages/authtest.html
+Call log:
+  - navigating to "http://localhost:5173/src/pages/authtest.html", waiting until "load"
+</status>
+</test>
+<status status="FAIL" start="2025-04-06T09:32:08.541408" elapsed="9.840000"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Browser Demo6" id="s1" pass="0" fail="1" skip="0">Browser Demo6</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-04-06T09:32:09.805592" level="ERROR">Calling method '_start_suite' of listener 'CryptoLibrary' failed: AttributeError: No password found! Password must be set ahead!</msg>
+<msg time="2025-04-06T09:32:09.818291" level="ERROR">Calling method '_start_test' of listener 'CryptoLibrary' failed: AttributeError: No password found! Password must be set ahead!</msg>
+</errors>
+</robot>

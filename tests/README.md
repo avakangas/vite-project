@@ -61,3 +61,17 @@ Testattu:[Testi tehtävä 5](.tehtävä5)
 - Report:  C:\Users\35840\harjoitus vite\vite-project\report.html  
 
 ## TEHTÄVÄ 6. tehty 2.4
+Testattu:[Testi tehtävä 6](.tehtävä6)
+- PS C:\Users\35840\harjoitus vite\vite-project\tests\tehtävä6> robot browser_demo6.robot
+- >>
+- ==============================================================================
+- Browser Demo6
+- ==============================================================================
+- Successful Login Should Redirect To Dashboard                          | PASS |
+- ------------------------------------------------------------------------------
+- Browser Demo6                                                          | PASS |
+- 1 test, 1 passed, 0 failed
+- ==============================================================================
+- Output:  C:\Users\35840\harjoitus vite\vite-project\output.xml
+- Log:     C:\Users\35840\harjoitus vite\vite-project\log.html
+- Report:  C:\Users\35840\harjoitus vite\vite-project\report.html
