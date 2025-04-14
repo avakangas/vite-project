@@ -81,3 +81,8 @@ Testien raportit ja logit menevät nyt outputs kansioon
 - Output:  C:\Users\35840\harjoitus vite\vite-project\tests\output.xml
 - Log:     C:\Users\35840\harjoitus vite\vite-project\tests\log.html
 - Report:  C:\Users\35840\harjoitus vite\vite-project\tests\report.html
+
+## TEHTÄVÄ 8. tehty 14.4
+- Github sivusto tehty 
+https://avakangas.github.io/vite-project/tests/outputs/log.html
+https://avakangas.github.io/vite-project/tests/outputs/report.html
