@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.13.1 on win32)" generated="2025-04-13T09:57:32.502217" rpa="false" schemaversion="5">
+<suite id="s1" name="Tests" source="C:\Users\35840\harjoitus vite\vite-project\tests">
+<suite id="s1-s1" name="Tehtävä2" source="C:\Users\35840\harjoitus vite\vite-project\tests\tehtävä2">
+<suite id="s1-s1-s1" name="Browser Demo2" source="C:\Users\35840\harjoitus vite\vite-project\tests\tehtävä2\browser_demo2.robot">
+<test id="s1-s1-s1-t1" name="Test Web Form" line="6">
+<kw name="New Browser" owner="Browser">
+<msg time="2025-04-13T09:57:32.766774" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "C:\\Users\\35840\\harjoitus vite\\vite-project\\browser\\traces\\temp\\06802830-c925-425e-bbde-b468a606fc8a"}</msg>
+<msg time="2025-04-13T09:57:32.806402" level="INFO">Starting Browser process C:\Users\35840\harjoitus vite\vite-project\.venv\Lib\site-packages\Browser\wrapper\index.js using port 57932</msg>
+<msg time="2025-04-13T09:57:32.807275" level="INFO">Node startup parameters: ['node', 'C:\\Users\\35840\\harjoitus vite\\vite-project\\.venv\\Lib\\site-packages\\Browser\\wrapper\\index.js', '57932']</msg>
+<msg time="2025-04-13T09:57:34.864597" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"C:\\Users\\35840\\harjoitus vite\\vite-project\\browser\\traces\\temp\\06802830-c925-425e-bbde-b468a606fc8a"}</msg>
+<arg>chromium</arg>
+<arg>headless=No</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2025-04-13T09:57:32.764551" elapsed="2.100367"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2025-04-13T09:57:37.925822" level="INFO">Keyword 'Take Screenshot  fail-screenshot-{index}' could not be run on failure:
+Error: Tried to take screenshot, but no page was open.</msg>
+<msg time="2025-04-13T09:57:37.926007" level="INFO">See also file:///C:/Users/35840/harjoitus%20vite/vite-project/playwright-log-1744527452717452500.txt for additional details.</msg>
+<msg time="2025-04-13T09:57:37.926948" level="FAIL">Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5174/src/pages/authtest.html
+Call log:
+  - navigating to "http://localhost:5174/src/pages/authtest.html", waiting until "load"
+</msg>
+<arg>http://localhost:5174/src/pages/authtest.html</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="FAIL" start="2025-04-13T09:57:34.884819" elapsed="3.055395">Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5174/src/pages/authtest.html
+Call log:
+  - navigating to "http://localhost:5174/src/pages/authtest.html", waiting until "load"
+</status>
+</kw>
+<kw name="Get Title" owner="Browser">
+<var>${actual_title}</var>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the title of the current page.</doc>
+<status status="NOT RUN" start="2025-04-13T09:57:37.941469" elapsed="0.000245"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>${actual_title}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-04-13T09:57:37.942313" elapsed="0.000175"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${actual_title}</arg>
+<arg>Authentication System</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="NOT RUN" start="2025-04-13T09:57:37.942861" elapsed="0.000118"/>
+</kw>
+<kw name="Type Text" owner="Browser">
+<arg>[name="my-text"]</arg>
+<arg>${Username}</arg>
+<arg>delay=0.1 s</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="NOT RUN" start="2025-04-13T09:57:37.943408" elapsed="0.000117"/>
+</kw>
+<kw name="Type Secret" owner="Browser">
+<arg>[name="my-password"]</arg>
+<arg>${Password}</arg>
+<arg>delay=0.1 s</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given secret from ``variable_name`` into the text field
+found by ``selector``.</doc>
+<status status="NOT RUN" start="2025-04-13T09:57:37.944294" elapsed="0.000199"/>
+</kw>
+<kw name="Type Text" owner="Browser">
+<arg>[name="my-textarea"]</arg>
+<arg>${Message}</arg>
+<arg>delay=0.1 s</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="NOT RUN" start="2025-04-13T09:57:37.944867" elapsed="0.000144"/>
+</kw>
+<kw name="Click With Options" owner="Browser">
+<arg>button</arg>
+<arg>delay=2 s</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2025-04-13T09:57:37.945401" elapsed="0.000129"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<arg>id=message</arg>
+<arg>==</arg>
+<arg>Received!</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2025-04-13T09:57:37.946122" elapsed="0.000149"/>
+</kw>
+<msg time="2025-04-13T09:57:37.950655" level="INFO">Set timeout to: 10000</msg>
+<status status="FAIL" start="2025-04-13T09:57:32.762361" elapsed="5.184378">Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5174/src/pages/authtest.html
+Call log:
+  - navigating to "http://localhost:5174/src/pages/authtest.html", waiting until "load"
+</status>
+</test>
+<status status="FAIL" start="2025-04-13T09:57:32.550433" elapsed="5.404199"/>
+</suite>
+<status status="FAIL" start="2025-04-13T09:57:32.548433" elapsed="5.413618"/>
+</suite>
+<suite id="s1-s2" name="Tehtävä3" source="C:\Users\35840\harjoitus vite\vite-project\tests\tehtävä3">
+<suite id="s1-s2-s1" name="Browser Demo3" source="C:\Users\35840\harjoitus vite\vite-project\tests\tehtävä3\browser_demo3.robot">
+<test id="s1-s2-s1-t1" name="Test Web Form Elements" line="9">
+<kw name="New Browser" owner="Browser">
+<msg time="2025-04-13T09:57:38.029778" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "C:\\Users\\35840\\harjoitus vite\\vite-project\\browser\\traces\\temp\\1e726625-025e-4a9b-acc9-134e0c0222eb"}</msg>
+<msg time="2025-04-13T09:57:38.062859" level="INFO">Starting Browser process C:\Users\35840\harjoitus vite\vite-project\.venv\Lib\site-packages\Browser\wrapper\index.js using port 57945</msg>
+<msg time="2025-04-13T09:57:38.063022" level="INFO">Node startup parameters: ['node', 'C:\\Users\\35840\\harjoitus vite\\vite-project\\.venv\\Lib\\site-packages\\Browser\\wrapper\\index.js', '57945']</msg>
+<msg time="2025-04-13T09:57:39.490224" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"C:\\Users\\35840\\harjoitus vite\\vite-project\\browser\\traces\\temp\\1e726625-025e-4a9b-acc9-134e0c0222eb"}</msg>
+<arg>chromium</arg>
+<arg>headless=False</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2025-04-13T09:57:38.029045" elapsed="1.461473"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2025-04-13T09:57:40.193837" level="INFO">Successfully initialized new page object and opened url: http://localhost:5173/src/pages/authtest.html</msg>
+<msg time="2025-04-13T09:57:40.193962" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<arg>${WEB_FORM_URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2025-04-13T09:57:39.509792" elapsed="0.684824"/>
+</kw>
+<kw name="Get Title" owner="Browser">
+<msg time="2025-04-13T09:57:41.223576" level="INFO">Title: 'Authentication System'</msg>
+<msg time="2025-04-13T09:57:41.401245" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/fail-screenshot-1.png" target="_blank"&gt;&lt;img src="browser/screenshot/fail-screenshot-1.png" width="800px"/&gt;&lt;/a&gt;</msg>
+<msg time="2025-04-13T09:57:41.401561" level="INFO">See also file:///C:/Users/35840/harjoitus%20vite/vite-project/playwright-log-1744527457967260700.txt for additional details.</msg>
+<msg time="2025-04-13T09:57:41.401795" level="FAIL">Title 'Authentication System' (str) should be 'Web form' (str)</msg>
+<arg>==</arg>
+<arg>Web form</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the title of the current page.</doc>
+<status status="FAIL" start="2025-04-13T09:57:40.195543" elapsed="1.216369">Title 'Authentication System' (str) should be 'Web form' (str)</status>
+</kw>
+<kw name="Type Text" owner="Browser">
+<arg>[name="my-text"]</arg>
+<arg>Testikäyttäjä</arg>
+<arg>delay=0.1s</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="NOT RUN" start="2025-04-13T09:57:41.412612" elapsed="0.000221"/>
+</kw>
+<kw name="Select Options By" owner="Browser">
+<arg>css=select[name="my-select"]</arg>
+<arg>value</arg>
+<arg>2</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Selects options from select element found by ``selector``.</doc>
+<status status="NOT RUN" start="2025-04-13T09:57:41.413259" elapsed="0.000198"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<arg>css=input[name="my-datalist"]</arg>
+<arg>San Francisco</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="NOT RUN" start="2025-04-13T09:57:41.413748" elapsed="0.000138"/>
+</kw>
+<kw name="Set File Input">
+<arg>css=input[name="my-file"]</arg>
+<arg>C:\\Users\\35840\\harjoitus vite\\vite-project\\tests\\tehtävä3/testfile.txt</arg>
+<status status="NOT RUN" start="2025-04-13T09:57:41.414593" elapsed="0.000153"/>
+</kw>
+<kw name="Check Checkbox" owner="Browser">
+<arg>css=input[name="my-check"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Checks the checkbox or selects radio button found by ``selector``.</doc>
+<status status="NOT RUN" start="2025-04-13T09:57:41.415721" elapsed="0.000137"/>
+</kw>
+<kw name="Check Checkbox" owner="Browser">
+<arg>css=input[name="my-radio"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Checks the checkbox or selects radio button found by ``selector``.</doc>
+<status status="NOT RUN" start="2025-04-13T09:57:41.416098" elapsed="0.000136"/>
+</kw>
+<kw name="Click" owner="Browser">
+<arg>css=button</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2025-04-13T09:57:41.416593" elapsed="0.000134"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<arg>css=#message</arg>
+<arg>visible</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="NOT RUN" start="2025-04-13T09:57:41.416979" elapsed="0.000121"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<arg>id=message</arg>
+<arg>==</arg>
+<arg>Received!</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2025-04-13T09:57:41.417609" elapsed="0.000163"/>
+</kw>
+<kw name="Close Browser" owner="Browser">
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" start="2025-04-13T09:57:41.418053" elapsed="0.000146"/>
+</kw>
+<msg time="2025-04-13T09:57:41.425372" level="INFO">Set timeout to: 10000</msg>
+<msg time="2025-04-13T09:57:41.440031" level="INFO">Switching context to context=114b6bf4-6134-4e7b-b8f0-1c7f20dabbdb in CURRENT</msg>
+<msg time="2025-04-13T09:57:41.447214" level="INFO">Successfully changed active context: context=114b6bf4-6134-4e7b-b8f0-1c7f20dabbdb</msg>
+<msg time="2025-04-13T09:57:41.529505" level="INFO">Successfully closed Context</msg>
+<status status="FAIL" start="2025-04-13T09:57:38.028467" elapsed="3.390069">Title 'Authentication System' (str) should be 'Web form' (str)</status>
+</test>
+<status status="FAIL" start="2025-04-13T09:57:37.965404" elapsed="3.571208"/>
+</suite>
+<status status="FAIL" start="2025-04-13T09:57:37.963098" elapsed="3.584306"/>
+</suite>
+<suite id="s1-s3" name="Tehtävä4" source="C:\Users\35840\harjoitus vite\vite-project\tests\tehtävä4">
+<suite id="s1-s3-s1" name="Browser Demo4" source="C:\Users\35840\harjoitus vite\vite-project\tests\tehtävä4\browser_demo4.robot">
+<test id="s1-s3-s1-t1" name="Lisää uusi päiväkirjamerkintä" line="11">
+<kw name="Open Browser" owner="Browser">
+<msg time="2025-04-13T09:57:41.567474" level="FAIL">ValueError: Argument 'browser' got value 'Chrome' that cannot be converted to SupportedBrowsers: SupportedBrowsers does not have member 'Chrome'. Available: 'chromium', 'firefox' and 'webkit'</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Opens a new browser instance. Use this keyword for quick experiments or debugging sessions.</doc>
+<status status="FAIL" start="2025-04-13T09:57:41.566574" elapsed="0.002394">ValueError: Argument 'browser' got value 'Chrome' that cannot be converted to SupportedBrowsers: SupportedBrowsers does not have member 'Chrome'. Available: 'chromium', 'firefox' and 'webkit'</status>
+</kw>
+<kw name="Wait Until Element Is Visible">
+<arg>id=new-entry</arg>
+<arg>timeout=5s</arg>
+<status status="NOT RUN" start="2025-04-13T09:57:41.569781" elapsed="0.000420"/>
+</kw>
+<kw name="Input Text">
+<arg>id=entry-text</arg>
+<arg>${ENTRY_TEXT}</arg>
+<status status="NOT RUN" start="2025-04-13T09:57:41.570692" elapsed="0.000356"/>
+</kw>
+<kw name="Click Button">
+<arg>id=save-entry</arg>
+<status status="NOT RUN" start="2025-04-13T09:57:41.571484" elapsed="0.000265"/>
+</kw>
+<kw name="Wait Until Element Contains">
+<arg>id=entries-list</arg>
+<arg>${ENTRY_TEXT}</arg>
+<arg>timeout=5s</arg>
+<status status="NOT RUN" start="2025-04-13T09:57:41.572066" elapsed="0.000186"/>
+</kw>
+<kw name="Close Browser" owner="Browser">
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" start="2025-04-13T09:57:41.572530" elapsed="0.000161"/>
+</kw>
+<msg time="2025-04-13T09:57:41.576343" level="INFO">No context open.</msg>
+<status status="FAIL" start="2025-04-13T09:57:41.562441" elapsed="0.010591">ValueError: Argument 'browser' got value 'Chrome' that cannot be converted to SupportedBrowsers: SupportedBrowsers does not have member 'Chrome'. Available: 'chromium', 'firefox' and 'webkit'</status>
+</test>
+<status status="FAIL" start="2025-04-13T09:57:41.550859" elapsed="0.028695"/>
+</suite>
+<status status="FAIL" start="2025-04-13T09:57:41.548424" elapsed="0.036459"/>
+</suite>
+<suite id="s1-s4" name="Tehtävä5" source="C:\Users\35840\harjoitus vite\vite-project\tests\tehtävä5">
+<suite id="s1-s4-s1" name="Browser Demo5" source="C:\Users\35840\harjoitus vite\vite-project\tests\tehtävä5\browser_demo5.robot">
+<test id="s1-s4-s1-t1" name="Kirjautumistesti" line="6">
+<kw name="New Browser" owner="Browser">
+<msg time="2025-04-13T09:57:41.606535" level="INFO">Switching browser to browser=19030003-3596-4dc6-8c84-956b7c03cefc</msg>
+<msg time="2025-04-13T09:57:41.612382" level="INFO">Successfully changed active browser: browser=19030003-3596-4dc6-8c84-956b7c03cefc</msg>
+<msg time="2025-04-13T09:57:41.612606" level="INFO">Reusing existing browser with id: browser=19030003-3596-4dc6-8c84-956b7c03cefc</msg>
+<arg>headless=false</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2025-04-13T09:57:41.605576" elapsed="0.007151"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2025-04-13T09:57:41.959246" level="INFO">Successfully initialized new page object and opened url: http://localhost:5173/src/pages/authtest.html</msg>
+<arg>http://localhost:5173/src/pages/authtest.html</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2025-04-13T09:57:41.613307" elapsed="0.346294"/>
+</kw>
+<kw name="Type Text" owner="Browser">
+<msg time="2025-04-13T09:57:41.962867" level="INFO">Types the text '35840' in the given field.</msg>
+<arg>[id="username"]</arg>
+<arg>${Username}</arg>
+<arg>delay=0.1 s</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2025-04-13T09:57:41.961024" elapsed="0.666543"/>
+</kw>
+<kw name="Type Secret" owner="Browser">
+<arg>[id="password"]</arg>
+<arg>$Password</arg>
+<arg>delay=0.1 s</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given secret from ``variable_name`` into the text field
+found by ``selector``.</doc>
+<status status="PASS" start="2025-04-13T09:57:42.628445" elapsed="0.945231"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2025-04-13T09:57:43.575690" level="INFO">Clicks the element 'id=login-button'.</msg>
+<msg time="2025-04-13T09:57:56.608718" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/fail-screenshot-2.png" target="_blank"&gt;&lt;img src="browser/screenshot/fail-screenshot-2.png" width="800px"/&gt;&lt;/a&gt;</msg>
+<msg time="2025-04-13T09:57:56.608988" level="INFO">See also file:///C:/Users/35840/harjoitus%20vite/vite-project/playwright-log-1744527452717452500.txt for additional details.</msg>
+<msg time="2025-04-13T09:57:56.609181" level="FAIL">TimeoutError: locator.click: Timeout 10000ms exceeded.
+Call log:
+  - waiting for locator('id=login-button')
+</msg>
+<arg>id=login-button</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="FAIL" start="2025-04-13T09:57:43.574521" elapsed="13.038501">TimeoutError: locator.click: Timeout 10000ms exceeded.
+Call log:
+  - waiting for locator('id=login-button')
+</status>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<arg>id=logout-button</arg>
+<arg>visible</arg>
+<arg>5s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="NOT RUN" start="2025-04-13T09:57:56.613581" elapsed="0.000233"/>
+</kw>
+<kw name="Close Browser" owner="Browser">
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" start="2025-04-13T09:57:56.614173" elapsed="0.000141"/>
+</kw>
+<msg time="2025-04-13T09:57:56.617683" level="INFO">Set timeout to: 10000</msg>
+<status status="FAIL" start="2025-04-13T09:57:41.604728" elapsed="15.010019">TimeoutError: locator.click: Timeout 10000ms exceeded.
+Call log:
+  - waiting for locator('id=login-button')
+</status>
+</test>
+<status status="FAIL" start="2025-04-13T09:57:41.588645" elapsed="15.031067"/>
+</suite>
+<status status="FAIL" start="2025-04-13T09:57:41.585618" elapsed="15.039791"/>
+</suite>
+<suite id="s1-s5" name="Tehtävä6" source="C:\Users\35840\harjoitus vite\vite-project\tests\tehtävä6">
+<suite id="s1-s5-s1" name="Browser Demo6" source="C:\Users\35840\harjoitus vite\vite-project\tests\tehtävä6\browser_demo6.robot">
+<test id="s1-s5-s1-t1" name="Test Web Form" line="10">
+<msg time="2025-04-13T09:57:56.998175" level="INFO">Decrypting text and return value.</msg>
+<kw name="New Browser" owner="Browser">
+<msg time="2025-04-13T09:57:57.002006" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "C:\\Users\\35840\\harjoitus vite\\vite-project\\browser\\traces\\temp\\11f10817-fc36-4114-a7af-327f56c8f97b"}</msg>
+<msg time="2025-04-13T09:57:57.044416" level="INFO">Starting Browser process C:\Users\35840\harjoitus vite\vite-project\.venv\Lib\site-packages\Browser\wrapper\index.js using port 57997</msg>
+<msg time="2025-04-13T09:57:57.046176" level="INFO">Node startup parameters: ['node', 'C:\\Users\\35840\\harjoitus vite\\vite-project\\.venv\\Lib\\site-packages\\Browser\\wrapper\\index.js', '57997']</msg>
+<msg time="2025-04-13T09:57:58.989372" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"C:\\Users\\35840\\harjoitus vite\\vite-project\\browser\\traces\\temp\\11f10817-fc36-4114-a7af-327f56c8f97b"}</msg>
+<arg>chromium</arg>
+<arg>headless=No</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2025-04-13T09:57:57.001237" elapsed="1.988501"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2025-04-13T09:57:59.671473" level="INFO">Successfully initialized new page object and opened url: http://localhost:5173/src/pages/authtest.html</msg>
+<msg time="2025-04-13T09:57:59.671623" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<arg>http://localhost:5173/src/pages/authtest.html</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2025-04-13T09:57:59.017142" elapsed="0.654723"/>
+</kw>
+<kw name="Set Viewport Size" owner="Browser">
+<msg time="2025-04-13T09:57:59.692745" level="INFO">Set viewport size to: [object Object]</msg>
+<arg>1280</arg>
+<arg>800</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Sets current Pages viewport size to specified dimensions.</doc>
+<status status="PASS" start="2025-04-13T09:57:59.680474" elapsed="0.012528"/>
+</kw>
+<kw name="Get Title" owner="Browser">
+<msg time="2025-04-13T09:58:00.711978" level="INFO">Title: 'Authentication System'</msg>
+<msg time="2025-04-13T09:58:00.869372" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/fail-screenshot-3.png" target="_blank"&gt;&lt;img src="browser/screenshot/fail-screenshot-3.png" width="800px"/&gt;&lt;/a&gt;</msg>
+<msg time="2025-04-13T09:58:00.869661" level="INFO">See also file:///C:/Users/35840/harjoitus%20vite/vite-project/playwright-log-1744527476633461900.txt for additional details.</msg>
+<msg time="2025-04-13T09:58:00.869877" level="FAIL">Title 'Authentication System' (str) should be 'Diary App' (str)</msg>
+<arg>==</arg>
+<arg>Diary App</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the title of the current page.</doc>
+<status status="FAIL" start="2025-04-13T09:57:59.693504" elapsed="1.182497">Title 'Authentication System' (str) should be 'Diary App' (str)</status>
+</kw>
+<kw name="Type Text" owner="Browser">
+<arg>[id="username"]</arg>
+<arg>${Username}</arg>
+<arg>delay=0.1 s</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="NOT RUN" start="2025-04-13T09:58:00.876888" elapsed="0.000353"/>
+</kw>
+<kw name="Type Secret" owner="Browser">
+<arg>[id="password"]</arg>
+<arg>${Password}</arg>
+<arg>delay=0.1 s</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given secret from ``variable_name`` into the text field
+found by ``selector``.</doc>
+<status status="NOT RUN" start="2025-04-13T09:58:00.877699" elapsed="0.000243"/>
+</kw>
+<kw name="Click" owner="Browser">
+<arg>xpath=//button[text()='Log In']</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2025-04-13T09:58:00.878365" elapsed="0.000206"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<arg>css=[data-testid="dashboard"]</arg>
+<arg>visible</arg>
+<arg>timeout=5s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="NOT RUN" start="2025-04-13T09:58:00.878911" elapsed="0.000732"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<arg>Take Screenshot</arg>
+<arg>login_check.png</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="NOT RUN" start="2025-04-13T09:58:00.880166" elapsed="0.000238"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-04-13T09:58:00.880963" elapsed="0.000351"/>
+</kw>
+<msg time="2025-04-13T09:58:00.886929" level="INFO">Set timeout to: 10000</msg>
+<doc>Testaa kirjautumislomake salatuilla tunnuksilla</doc>
+<status status="FAIL" start="2025-04-13T09:57:56.996754" elapsed="3.884914">Title 'Authentication System' (str) should be 'Diary App' (str)</status>
+</test>
+<status status="FAIL" start="2025-04-13T09:57:56.629146" elapsed="4.260238"/>
+</suite>
+<status status="FAIL" start="2025-04-13T09:57:56.626394" elapsed="4.399215"/>
+</suite>
+<status status="FAIL" start="2025-04-13T09:57:32.514987" elapsed="28.512002"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="5" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Tests" id="s1" pass="0" fail="5" skip="0">Tests</stat>
+<stat name="Tehtävä2" id="s1-s1" pass="0" fail="1" skip="0">Tests.Tehtävä2</stat>
+<stat name="Browser Demo2" id="s1-s1-s1" pass="0" fail="1" skip="0">Tests.Tehtävä2.Browser Demo2</stat>
+<stat name="Tehtävä3" id="s1-s2" pass="0" fail="1" skip="0">Tests.Tehtävä3</stat>
+<stat name="Browser Demo3" id="s1-s2-s1" pass="0" fail="1" skip="0">Tests.Tehtävä3.Browser Demo3</stat>
+<stat name="Tehtävä4" id="s1-s3" pass="0" fail="1" skip="0">Tests.Tehtävä4</stat>
+<stat name="Browser Demo4" id="s1-s3-s1" pass="0" fail="1" skip="0">Tests.Tehtävä4.Browser Demo4</stat>
+<stat name="Tehtävä5" id="s1-s4" pass="0" fail="1" skip="0">Tests.Tehtävä5</stat>
+<stat name="Browser Demo5" id="s1-s4-s1" pass="0" fail="1" skip="0">Tests.Tehtävä5.Browser Demo5</stat>
+<stat name="Tehtävä6" id="s1-s5" pass="0" fail="1" skip="0">Tests.Tehtävä6</stat>
+<stat name="Browser Demo6" id="s1-s5-s1" pass="0" fail="1" skip="0">Tests.Tehtävä6.Browser Demo6</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-04-13T09:57:56.995914" level="ERROR">Calling method '_start_suite' of listener 'CryptoLibrary' failed: AttributeError: No password found! Password must be set ahead!</msg>
+<msg time="2025-04-13T09:57:57.000201" level="ERROR">Calling method '_start_test' of listener 'CryptoLibrary' failed: AttributeError: No password found! Password must be set ahead!</msg>
+</errors>
+</robot>

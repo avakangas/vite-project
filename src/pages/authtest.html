@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<<<<<<< HEAD
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -137,73 +136,3 @@ Authorization: Bearer (put-user-token-here)</pre>
   <script type="module" src="/src/js/auth.js"></script>
 </body>
 </html>
-=======
-<html lang="fi">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Käyttäjähallinta</title>
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-  <div class="container">
-    <h1>Käyttäjähallintasovellus</h1>
-    
-    <!-- Auth forms -->
-    <div class="auth-forms">
-      <!-- Login form -->
-      <form class="loginForm form">
-        <h2>Kirjaudu sisään</h2>
-        <div class="form-group">
-          <label for="login-username">Käyttäjänimi:</label>
-          <input type="text" id="login-username" name="username" required>
-        </div>
-        <div class="form-group">
-          <label for="login-password">Salasana:</label>
-          <input type="password" id="login-password" name="password" required>
-        </div>
-        <div class="form-actions">
-          <button type="submit" class="button primary">Kirjaudu</button>
-          <p>Ei käyttäjätiliä? <button type="button" id="goToRegister" class="button-link">Rekisteröidy</button></p>
-        </div>
-      </form>
-      
-      <!-- Register form -->
-      <form class="registerForm form">
-        <h2>Rekisteröidy</h2>
-        <div class="form-group">
-          <label for="username">Käyttäjänimi:</label>
-          <input type="text" id="username" name="username" required>
-        </div>
-        <div class="form-group">
-          <label for="email">Sähköposti:</label>
-          <input type="email" id="email" name="email" required>
-        </div>
-        <div class="form-group">
-          <label for="password">Salasana:</label>
-          <input type="password" id="password" name="password" required>
-        </div>
-        <div class="form-actions">
-          <button type="submit" class="button primary">Rekisteröidy</button>
-          <p>Onko sinulla jo tili? <button type="button" id="goToLogin" class="button-link">Kirjaudu sisään</button></p>
-        </div>
-      </form>
-    </div>
-
-    <!-- User info section (will display after login) -->
-    <div id="userInfoSection" class="user-info-section" style="display:none;">
-      <h2>Olet kirjautunut sisään</h2>
-      <p id="user-info"></p>
-      <button id="logoutButton" class="button primary">Kirjaudu ulos</button>
-    </div>
-
-    <!-- Error message section -->
-    <div id="errorMessage" class="error-message" style="display:none;">
-      <p id="errorText"></p>
-    </div>
-  </div>
-
-  <script src="js/auth.js"></script>
-</body>
-</html>
->>>>>>> ff370e2 (done)

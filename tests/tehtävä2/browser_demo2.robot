@@ -1,6 +1,6 @@
 *** Settings ***
 Library     Browser    auto_closing_level=KEEP
-Resource    Keywords3.robot  
+Resource    Keywords2.robot  
 
 *** Test Cases ***
 Test Web Form

@@ -5,31 +5,19 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite App - HyteGym</title>
-    <!--<link rel="stylesheet" href="src/css/style.css"/>-->
+    <link rel="stylesheet" href="src/css/style.css"/>
   </head>
   <body>
-    <!-- Navigation bar -->
     <nav class="clearfix">
       <div id="logo">HyteGym</div>
       <div class="nav-links">
         <a class="box" href="#1">Koti</a>
-        <a class="box" href="#bmi">BMI laskin</a>
+        <a class="box" href="#2">BMI laskin</a>
         <a class="box" href="#3">Yhteystiedot</a>
       </div>
+     <button id="login-nav-btn" class="box">Kirjaudu sisään</button>
     </nav>
 
-    <!-- Main Section -->
-    <h2>Index / Kotisivu</h2>
-    <ul>
-      <li>
-        <a href="./src/pages/apitest.html" target="_blank">Linkki APItesteihin</a>
-      </li>
-      <li>
-        <a href="./src/pages/authtest.html" target="_blank">Linkki Auth</a>
-      </li>
-    </ul>
-
-    <!-- Hero Section -->
     <main class="hero">
       <div class="slogan">
         Miten
@@ -54,21 +42,15 @@
       <img src="https://cdn.pixabay.com/photo/2013/07/13/11/49/heart-158739_640.png" alt="Sydänkuva" class="kuva sydan"/>
     </div>
 
-    <!-- BMI Calculator Section -->
     <div id="2" class="bmilaskin">
       <img src="https://rtaesthetics.co.uk/wp-content/uploads/2021/03/bmi-adult-fb-600x315-1.jpeg" alt="bmikuva" class="bmikuva"/>
       <h2>Painoindeksilaskuri / BMI-laskuri</h2>
       <p class="k">Painoindeksilaskurilla voit laskea pituuden ja painon perusteella painoindeksin (BMI, Body Mass Index).</p>
       <p><label for="paino">Anna painosi:</label></p>
       <input type="number" id="paino" name="paino" placeholder="kg" required/>
-
       <p><label for="pituus">Anna pituutesi:</label></p>
       <input type="number" id="pituus" name="pituus" placeholder="cm" required/>
-
-      <p>
-        <button id="bmi-button" onclick="calculateBMI()">Laske indeksi</button>
-      </p>
-
+      <p><button id="bmi-button" onclick="calculateBMI()">Laske indeksi</button></p>
       <div id="tulos">Mittaustuloksesi:</div>
 
       <table>
@@ -88,7 +70,12 @@
       <p id="analyysi">Analyyysi: Täähän saat tietoa painoindeksistäsi</p>
     </div>
 
-    <!-- Diary Section -->
+    <div id="login-modal" class="modal">
+      <div class="modal-content">
+        <span id="close-modal" class="close">&times;</span>
+      </div>
+    </div>
+
     <div id="paivakirja" class="paivakirja">
       <div class="paivakirja-container">
         <div class="paivakirja-card">
@@ -105,30 +92,6 @@
       </div>
     </div>
 
-    <!-- Sign Up Form -->
-    <div id="signup-form">
-      <h2>Rekisteröidy</h2>
-      <p><label for="signup-username">Käyttäjätunnus:</label></p>
-      <input type="text" id="signup-username" placeholder="Käyttäjätunnus" required />
-      <p><label for="signup-email">Sähköposti:</label></p>
-      <input type="email" id="signup-email" placeholder="Sähköposti" required />
-      <p><label for="signup-password">Salasana:</label></p>
-      <input type="password" id="signup-password" placeholder="Salasana" required />
-      <p><button id="signup-button">Rekisteröidy</button></p>
-      <div id="signup-error-message"></div>
-    </div>
-
-    <!-- Login Form -->
-    <div id="login-form">
-      <h2>Kirjaudu sisään</h2>
-      <p><label for="login-username">Käyttäjätunnus:</label></p>
-      <input type="text" id="login-username" placeholder="Käyttäjätunnus" required />
-      <p><label for="login-password">Salasana:</label></p>
-      <input type="password" id="login-password" placeholder="Salasana" required />
-      <p><button id="login-button">Kirjaudu sisään</button></p>
-      <div id="login-error-message"></div>
-    </div>
-
     <footer>
       Copyright, meitsi
     </footer>
@@ -137,13 +100,6 @@
       window.onload = function () {
         const bmiButton = document.getElementById("bmi-button");
         bmiButton.addEventListener("click", calculateBMI);
-        
-        // Lisää kirjautumisnapin toiminnallisuus
-        const loginButton = document.getElementById("login-nav-btn");
-        loginButton.addEventListener("click", function() {
-          // Ohjaa käyttäjä authtest.html-sivulle
-          window.location.href = "./src/pages/authtest.html";
-        });
       };
 
       const loginButton = document.getElementById("login-nav-btn");
@@ -199,6 +155,5 @@
         }
       });
     </script>
-    <script type="module" src="/src/js/main.js"></script>
   </body>
 </html>

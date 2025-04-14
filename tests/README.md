@@ -75,3 +75,9 @@ Testattu:[Testi tehtävä 6](.tehtävä6)
 - Output:  C:\Users\35840\harjoitus vite\vite-project\output.xml
 - Log:     C:\Users\35840\harjoitus vite\vite-project\log.html
 - Report:  C:\Users\35840\harjoitus vite\vite-project\report.html
+
+## TEHTÄVÄ 7. tehty 13.4
+Testien raportit ja logit menevät nyt outputs kansioon
+- Output:  C:\Users\35840\harjoitus vite\vite-project\tests\output.xml
+- Log:     C:\Users\35840\harjoitus vite\vite-project\tests\log.html
+- Report:  C:\Users\35840\harjoitus vite\vite-project\tests\report.html
