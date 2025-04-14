@@ -84,5 +84,5 @@ Testien raportit ja logit menevät nyt outputs kansioon
 
 ## TEHTÄVÄ 8. tehty 14.4
 - Github sivusto tehty 
-https://avakangas.github.io/vite-project/tests/outputs/log.html
-https://avakangas.github.io/vite-project/tests/outputs/report.html
+- https://avakangas.github.io/vite-project/tests/outputs/log.html
+- https://avakangas.github.io/vite-project/tests/outputs/report.html
