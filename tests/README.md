@@ -86,3 +86,17 @@ Testien raportit ja logit menevät nyt outputs kansioon
 - Github sivusto tehty 
 - https://avakangas.github.io/vite-project/tests/outputs/log.html
 - https://avakangas.github.io/vite-project/tests/outputs/report.html
+
+## TEHTÄVÄ 9 tehty 25.5.
+Testattu browser_demo9.robot
+- ==============================================================================
+- Testaa GET /entries palauttaa kaikki merkinnät                | PASS |
+- Testaa POST /entries lisää uuden merkinnän                    | PASS |
+- Testaa suojaamaton reitti palauttaa 401                       | PASS |
+- ------------------------------------------------------------------------------
+- Browser Demo9                                                 | PASS |
+- 3 tests, 3 passed, 0 failed
+- ==============================================================================
+- Output:  C:\Users\35840\harjoitus vite\vite-project\tests\outputs\output.xml
+- Log:     C:\Users\35840\harjoitus vite\vite-project\tests\outputs\log.html  
+- Report:  C:\Users\35840\harjoitus vite\vite-project\tests\outputs\report.html
